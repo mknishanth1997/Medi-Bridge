@@ -1,14 +1,18 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { TestComponent2 } from './Testing/Test-Component-2/Test-Comp-2';
-import { TestComponent1 } from './Testing/TestComponent-1/TestComp1';
-
+import { MainFullScreen } from './Medi-Bridge-App/Main-Full-Screen/Main-Full-Screen';
+import { HomeScreen } from './Medi-Bridge-App/Main-Full-Screen/User-View-Screen/Content-screen/Home-app/Home-app';
+import { AddPatient } from './Medi-Bridge-App/Main-Full-Screen/User-View-Screen/Content-screen/Add-New-Patient/AddPatient';
 function App() {
   return (
-    <div>
-      <h1>Hello, World!</h1>
-      <TestComponent1></TestComponent1>
-      <TestComponent2></TestComponent2>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/*" element={<MainFullScreen />}>
+          <Route path="dashboard" element={<HomeScreen />} />
+          <Route path="dashboardd" element={<AddPatient />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

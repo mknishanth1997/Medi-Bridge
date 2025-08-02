@@ -1,0 +1,34 @@
+.app-layout {
+  display: grid;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar content';
+  grid-template-columns: 250px 1fr; /* Sidebar fixed, content flexible */
+  grid-template-rows: auto 1fr; /* Header auto height, rest fills */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Sidebar: full height, starts at top-left */
+.side-bar {
+  grid-area: sidebar;
+  background-color: #f4f4f4;
+  height: 100vh; /* force full height */
+  overflow-y: auto;
+}
+
+/* Header only spans right of sidebar */
+.header {
+  grid-area: header;
+  background-color: #ffffff;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+/* Content area below header */
+.content-screen {
+  grid-area: content;
+  background-color: #fafafa;
+  padding: 2rem;
+  overflow-y: auto;
+}
