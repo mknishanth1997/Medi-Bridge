@@ -1,0 +1,75 @@
+:root {
+  /* --- Colors --- */
+  --primary-color: #007bff; /* Main brand color */
+  --secondary-color: #6c757d; /* Secondary brand color */
+  --accent-color: #28a745; /* Accent color for highlights/success */
+  --danger-color: #dc3545; /* Color for errors/warnings */
+  --warning-color: #ffc107; /* Color for warnings */
+  --info-color: #17a2b8; /* Color for informational messages */
+  --light-color: #f8f9fa; /* Light background color */
+  --dark-color: #343a40; /* Dark text/background color */
+  --text-color: #212529; /* Default text color */
+  --text-light-color: #6c757d; /* Lighter text color for secondary content */
+  --border-color: #dee2e6; /* Default border color */
+  --background-color: transparent; /* Default page background */
+
+  /* --- Typography --- */
+  --font-family-base: 'Inter', sans-serif; /* Base font family */
+  --font-family-heading: 'Inter', sans-serif; /* Font family for headings */
+
+  --font-size-base: 1rem; /* 16px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 2rem; /* 32px */
+  --font-size-3xl: 2.5rem; /* 40px */
+
+  --line-height-base: 1.5; /* Base line height */
+  --line-height-heading: 1.2; /* Line height for headings */
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* --- Spacing --- */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+
+  /* --- Border Radius --- */
+  --border-radius-sm: 0.25rem; /* 4px */
+  --border-radius-md: 0.5rem; /* 8px */
+  --border-radius-lg: 1rem; /* 16px */
+  --border-radius-full: 9999px; /* For pill shapes */
+
+  /* --- Box Shadows --- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  /* --- Transitions --- */
+  --transition-speed-fast: 0.15s;
+  --transition-speed-normal: 0.3s;
+  --transition-speed-slow: 0.5s;
+  --transition-timing-ease: ease-in-out;
+
+  /* --- Z-index --- */
+  --z-index-low: 10;
+  --z-index-medium: 100;
+  --z-index-high: 1000;
+  --z-index-modal: 2000;
+  --z-index-tooltip: 3000;
+
+  /* --- Breakpoints (for media queries - useful in JavaScript or preprocessors) --- */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+}

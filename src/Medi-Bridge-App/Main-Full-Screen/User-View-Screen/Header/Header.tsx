@@ -1,17 +1,26 @@
 import './Header.css';
+import hospitalLogo from '../../../../assets/Logo/hospitalLogo.png';
+import { BellIconOff, BellIconOn, PendingAppointmentIcon } from '../../../../assets/icons/SVGCODE';
+import { useState } from 'react';
 export function Header() {
+  const [notificationStatus, setNotificationStatus] = useState<boolean>(false);
   return (
     <>
       <div className="header">
         <div className="left">
-          <h1>Logo</h1>
+          <img src={hospitalLogo} alt="Hospital Logo" />
+          <div className="left-text">
+            <h1>Medi Bridge</h1>
+            <p>Medical Management Service</p>
+          </div>
         </div>
         <div className="right">
-          <ul>
-            <li>link 1</li>
-            <li>Link 2</li>
-            <li>Link 3</li>
-          </ul>
+          <div className="pendingAppointmentheaderwidget">
+            <PendingAppointmentIcon></PendingAppointmentIcon>
+            <p>Today: 12 Appointments</p>
+          </div>
+          {notificationStatus === true ? <BellIconOn></BellIconOn> : <BellIconOff></BellIconOff>}
+          <button>Save </button>
         </div>
       </div>
     </>
