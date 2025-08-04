@@ -14,7 +14,7 @@ export const ROUTES = {
 
 export type Appointment = {
   appointmentId: string;
-  patientId: string;
+  patientId: string | undefined;
   patientName: string;
   patientAge: number;
   patientGender: string;

@@ -9,6 +9,7 @@ import { PatientHistory } from './Medi-Bridge-App/Main-Full-Screen/User-View-Scr
 import { RevenueAnalysis } from './Medi-Bridge-App/Main-Full-Screen/User-View-Screen/Content-screen/Revenue-Analysis/RevenueAnalysis';
 import { DoctorPerformanceAnalysis } from './Medi-Bridge-App/Main-Full-Screen/User-View-Screen/Content-screen/Doctor-Performance/DoctorPerformance';
 import { DataProvider } from './Medi-Bridge-App/context/DataContext';
+
 function App() {
   return (
     <DataProvider>
