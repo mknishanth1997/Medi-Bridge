@@ -25,7 +25,7 @@ export function DataProvider(props: { children: ReactNode }) {
   // Loading the Initial Data
   function loadInitialData() {
     const a = localStorage.getItem('appointments');
-    console.log(a);
+    // console.log(a);
     const p = localStorage.getItem('patientHistories');
 
     if (a) {

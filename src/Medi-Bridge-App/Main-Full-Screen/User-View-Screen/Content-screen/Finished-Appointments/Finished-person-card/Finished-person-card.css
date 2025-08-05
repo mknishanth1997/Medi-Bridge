@@ -1,0 +1,73 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fff;
+  max-width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.patient-info .name {
+  font-weight: 600;
+}
+
+.patient-info .details {
+  font-size: 0.85em;
+  color: #555;
+}
+
+.menu {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.card-body {
+  margin-top: 10px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+.consult {
+  background-color: #4caf50;
+  color: white;
+}
+
+.no-show {
+  background-color: #f57c00;
+  color: white;
+}
+
+.cancel {
+  background-color: #f44336;
+  color: white;
+}

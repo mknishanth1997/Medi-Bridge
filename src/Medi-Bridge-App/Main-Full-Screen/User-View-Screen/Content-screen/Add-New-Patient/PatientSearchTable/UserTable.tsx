@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import DataTable from 'react-data-table-component';
-import { TableColumn } from 'react-data-table-component';
+import DataTable, { TableColumn } from 'react-data-table-component';
 import { useData } from '../../../../../context/DataContext';
 import './UserTable.css';
+
 interface UserTableProps {
   onEditPatient: (patientId: string) => void;
 }
+
 interface Appointment {
   patientId: string;
   patientName: string;
@@ -18,6 +19,27 @@ interface Appointment {
 function PatientTable({ onEditPatient }: UserTableProps) {
   const { appointments } = useData();
   const [filterText, setFilterText] = useState('');
+
+  // Step 1: Deduplicate appointments by patientId
+  const uniqueAppointmentsMap = new Map<string, Appointment>();
+
+  appointments.forEach(appointment => {
+    if (appointment.patientId && !uniqueAppointmentsMap.has(appointment.patientId)) {
+      uniqueAppointmentsMap.set(appointment.patientId, appointment);
+    }
+  });
+
+  const uniqueAppointments = Array.from(uniqueAppointmentsMap.values());
+
+  // Step 2: Filter by ID or Name
+  const filteredData = uniqueAppointments.filter(appointment => {
+    const search = filterText.toLowerCase();
+    return (
+      appointment.patientId?.toLowerCase().includes(search) ||
+      appointment.patientName?.toLowerCase().includes(search)
+    );
+  });
+
   // Columns
   const columns: TableColumn<Appointment>[] = [
     {
@@ -57,13 +79,6 @@ function PatientTable({ onEditPatient }: UserTableProps) {
       ),
     },
   ];
-  const filteredData = appointments
-    .filter(appointment => appointment.status === 'booked') // ✅ condition
-    .filter(
-      appointment =>
-        appointment.patientName?.toLowerCase().includes(filterText.toLowerCase()) ||
-        appointment.patientId?.toLowerCase().includes(filterText.toLowerCase())
-    );
 
   return (
     <div className="patient-table-container">
@@ -81,7 +96,7 @@ function PatientTable({ onEditPatient }: UserTableProps) {
         columns={columns}
         data={filteredData}
         fixedHeader
-        fixedHeaderScrollHeight="300px" // ~5 rows
+        fixedHeaderScrollHeight="300px"
         dense={false}
         highlightOnHover
         striped

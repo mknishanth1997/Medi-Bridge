@@ -11,6 +11,7 @@ export function AddPatient() {
       <div className="wrap">
         {formVisible ? (
           <AddPatientDetailsForm
+            key={selectedPatientId ?? 'new'}
             patientId={selectedPatientId}
             onClose={() => {
               setFormVisible(false);

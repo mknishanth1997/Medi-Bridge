@@ -28,21 +28,73 @@ export type Appointment = {
   bp?: string;
   weight?: number;
   height?: number;
-  bloodGroup: string;
+  bloodGroup?: string;
   firstVisit: boolean;
-  status: 'booked' | 'cancelled' | 'completed' | 'no-show';
+  status: string;
 };
 
 // Individual Patient History Data
 
 export type patientHistory = {
   patientId: string;
-  diagnosis: string;
-  prescribedMedication: string;
-  modeOfPayment: 'cash' | 'card' | 'upi' | 'insurance' | 'other';
-  amountPaid: number;
-  pharmacyPurchaseConfirmation: boolean;
-  followUpNeeded: boolean;
-  followUpDate?: string;
-  additionalNotes: string;
+  name: string;
+  age: number;
+  gender: string;
+  phoneNumber: string;
+  emailId: string;
+  visits: Visit[];
 };
+
+//
+//
+
+export type Visit = {
+  visitId: string;
+  date: string;
+  time: string;
+  reason: string;
+  doctor: string;
+  firstVisit: boolean;
+  status: string;
+
+  vitals?: {
+    heartRate?: number;
+    bp?: string;
+    weight?: number;
+    height?: number;
+    bloodGroup?: string;
+  };
+
+  history?: {
+    diagnosis: string;
+    prescribedMedication: string;
+    modeOfPayment: 'cash' | 'card' | 'upi' | 'insurance' | 'other';
+    amountPaid: number;
+    pharmacyPurchaseConfirmation: boolean;
+    followUpNeeded: boolean;
+    followUpDate?: string;
+    additionalNotes: string;
+  };
+};
+
+export type FullPatient = {
+  patientId: string;
+  name: string;
+  age: number;
+  gender: string;
+  phoneNumber: string;
+  emailId: string;
+  visits: Visit[];
+};
+
+// export type patientHistory = {
+//   patientId: string;
+//   diagnosis: string;
+//   prescribedMedication: string;
+//   modeOfPayment: 'cash' | 'card' | 'upi' | 'insurance' | 'other';
+//   amountPaid: number;
+//   pharmacyPurchaseConfirmation: boolean;
+//   followUpNeeded: boolean;
+//   followUpDate?: string;
+//   additionalNotes: string;
+// };

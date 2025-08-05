@@ -5,10 +5,10 @@ import './AddAppointmentForm.css';
 
 const VALID_GENDER = ['male', 'female', 'other'];
 interface AddPatientDetailsFormProps {
-  patientId: string | undefined;
+  patientId: string | null;
   onClose: () => void;
 }
-export function AddPatientDetailsForm({ patientId = 'hi', onClose }: AddPatientDetailsFormProps) {
+export function AddPatientDetailsForm({ patientId, onClose }: AddPatientDetailsFormProps) {
   const ID = useId();
   // Context usage
   const {
@@ -46,7 +46,7 @@ export function AddPatientDetailsForm({ patientId = 'hi', onClose }: AddPatientD
   console.log(appointments);
 
   useEffect(() => {
-    if (patientId !== undefined) {
+    if (patientId !== null) {
       const existing = appointments.find(app => app.patientId === patientId);
       if (existing) {
         setFullName(existing.patientName || '');
@@ -63,7 +63,7 @@ export function AddPatientDetailsForm({ patientId = 'hi', onClose }: AddPatientD
     const { date, time } = getTodayDateTime();
     const newAppointment = {
       appointmentId: crypto.randomUUID(),
-      patientId: 'patientId ?? null',
+      patientId: patientId,
       patientName: fullName,
       patientAge: age,
       patientGender: gender,
@@ -84,6 +84,7 @@ export function AddPatientDetailsForm({ patientId = 'hi', onClose }: AddPatientD
     const updatedAppointments = [...appointments, newAppointment];
     saveAppointments(updatedAppointments);
     console.log({ newAppointment });
+    console.log('Data Added');
   }
 
   return (
