@@ -46,7 +46,7 @@ export function AddPatientDetailsForm({ patientId, onClose }: AddPatientDetailsF
   console.log(appointments);
 
   useEffect(() => {
-    if (patientId !== null) {
+    if (patientId !== undefined) {
       const existing = appointments.find(app => app.patientId === patientId);
       if (existing) {
         setFullName(existing.patientName || '');

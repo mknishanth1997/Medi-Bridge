@@ -25,8 +25,6 @@ const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => 
       id = patientId;
     }
     setPatientId(id);
-    console.log({ patientId });
-
     const updatedAppointments = appointments.map(app => {
       if (app.appointmentId === appointmentId) {
         return {
@@ -39,33 +37,96 @@ const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => 
     });
 
     saveAppointments(updatedAppointments);
+    updatePatientHistories(id);
   }
 
-  function savePatientVisit() {
-    console.log('HI');
+  function updatePatientHistories(patientId: string) {
+    let newVisit: Visit | undefined;
+    let patientDetails:
+      | {
+          name: string;
+          age: number;
+          gender: string;
+          phoneNumber: string;
+          emailId: string;
+        }
+      | undefined;
+
+    // Find matching appointment
+    appointments.forEach(app => {
+      if (appointmentId === app.appointmentId) {
+        newVisit = {
+          visitId: appointmentId,
+          date: app.date,
+          time: app.time,
+          reason: app.reason,
+          doctor: 'Nishanth',
+          firstVisit: app.firstVisit,
+          status: app.status,
+          vitals: {
+            heartRate: app.heartRate,
+            bp: app.bp,
+            weight: app.weight,
+            height: app.height,
+          },
+          history: {
+            diagnosis: diagnosis,
+            prescribedMedication: medications,
+            modeOfPayment: paymentMethod,
+            amountPaid: amountPaid,
+            pharmacyPurchaseConfirmation: pharmacyFromHospital,
+            followUpNeeded: saveFollowup,
+            followUpDate: followupDate,
+            additionalNotes: additionalNotes,
+          },
+        };
+
+        patientDetails = {
+          name: app.patientName,
+          age: app.patientAge,
+          gender: app.patientGender,
+          phoneNumber: app.patientPhoneNumber,
+          emailId: app.patientEmailId,
+        };
+      }
+    });
+
+    if (!newVisit || !patientDetails) {
+      console.error('Missing data for new visit or patient.');
+      return;
+    }
+
+    const patientExists = patientHistories.some(ph => ph.patientId === patientId);
+
+    let updatedPatientHistories;
+
+    if (patientExists) {
+      // 👴 Update existing patient
+      updatedPatientHistories = patientHistories.map(ph => {
+        if (ph.patientId === patientId) {
+          return {
+            ...ph,
+            visits: [...ph.visits, newVisit!],
+          };
+        }
+        return ph;
+      });
+    } else {
+      // 🆕 Add new patient
+      updatedPatientHistories = [
+        ...patientHistories,
+        {
+          patientId,
+          ...patientDetails,
+          visits: [newVisit],
+        },
+      ];
+    }
+
+    savePatientHistories(updatedPatientHistories);
+    console.log({ newVisit });
   }
 
-  // function updateAppointmentStatusToSubmitted(
-  //   appointmentId: string,
-  //   appointments: Appointment[],
-  //   saveAppointments: (updated: Appointment[]) => void
-  // ): void {
-  //   console.log({ appointmentId });
-
-  //   if (!appointmentId) return;
-
-  //   const updatedAppointments = appointments.map(appointment => {
-  //     if (appointment.appointmentId === appointmentId) {
-  //       return {
-  //         ...appointment,
-  //         status: 'submitted',
-  //       };
-  //     }
-  //     return appointment;
-  //   });
-
-  //   saveAppointments(updatedAppointments);
-  // }
   return (
     <form
       onSubmit={e => {

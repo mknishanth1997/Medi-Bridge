@@ -62,18 +62,17 @@ export type Visit = {
     bp?: string;
     weight?: number;
     height?: number;
-    bloodGroup?: string;
   };
 
   history?: {
-    diagnosis: string;
-    prescribedMedication: string;
-    modeOfPayment: 'cash' | 'card' | 'upi' | 'insurance' | 'other';
-    amountPaid: number;
-    pharmacyPurchaseConfirmation: boolean;
-    followUpNeeded: boolean;
+    diagnosis?: string;
+    prescribedMedication?: string;
+    modeOfPayment?: 'cash' | 'card' | 'upi' | 'insurance' | 'other';
+    amountPaid?: number;
+    pharmacyPurchaseConfirmation?: boolean;
+    followUpNeeded?: boolean;
     followUpDate?: string;
-    additionalNotes: string;
+    additionalNotes?: string;
   };
 };
 
