@@ -1,73 +1,308 @@
-.card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 12px;
-  background: #fff;
-  max-width: 300px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.info-card-pending {
+  /* border: solid; */
+  width: 350px;
+  height: fit-content;
+  position: relative;
+  border-radius: 25px;
+  box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+
+  background-color: white;
+}
+.colored-section {
+  /* border: solid; */
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
+.top-section {
+  background: linear-gradient(135deg, #e09e39, #a87410);
+  flex: 25;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-top-right-radius: 25px;
+}
+.bottom-section {
+  background: linear-gradient(135deg, #efc153, #fff3c4);
+  flex: 75;
+  border-bottom-right-radius: 25px;
+}
+
+/* Header Deails */
 .card-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+  /* border: solid; */
+  padding: 12px;
 }
 
 .avatar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
+  background: #000;
+  z-index: 1;
+}
+
+.patient-info {
+  flex-grow: 1;
 }
 
 .patient-info .name {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1e293b;
 }
 
 .patient-info .details {
-  font-size: 0.85em;
-  color: #555;
+  font-size: 0.9rem;
+  color: #64748b;
 }
 
-.menu {
-  margin-left: auto;
-  cursor: pointer;
+.short-border {
+  border-bottom: 1px solid gray;
+  width: 50%; /* Only half the width */
+  position: absolute;
+  bottom: 0;
+  left: 50px;
 }
 
-.card-body {
-  margin-top: 10px;
+/* Header Details */
+
+/* Appointment Details:  */
+.pendingcard-body {
+  /* border: solid; */
+  width: 75%;
+  padding: 12px;
 }
 
-.info {
+.pendingcard-info {
+  gap: 8px;
+  padding: 4px;
   display: flex;
-  justify-content: space-between;
-  margin: 4px 0;
+  /* justify-content: center; */
+}
+.pendingcard-label,
+.pendingcard-value {
+  /* border: solid; */
+  flex: 1;
 }
 
-.card-footer {
+.pendingcard-label {
+  font-weight: 600;
+  width: max-content;
+  /* border: solid; */
+  white-space: nowrap;
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  justify-content: start;
+}
+.pendingcard-value {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* shadow */
+.info-card-pending {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  /* border-radius: 20px; */
+  /* padding: 1.5rem; */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* Shadow for depth */
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(255, 255, 255, 0.05);
+
+  transition: all 0.35s ease;
+}
+
+/* WOW factor on hover */
+.info-card-pending:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 255, 200, 0.3); /* subtle neon glow */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Optional: Gradient light sweep animation */
+.info-card-pending::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  animation: shine 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(25deg);
+  }
+}
+
+/* Make sure the parent has relative positioning for the pseudo-element */
+.info-card-pending {
+  position: relative;
+  overflow: hidden;
+}
+/* Footer */
+.card-footerr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  margin-bottom: 16px;
 }
 
 .btn {
   border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
+  padding: 8px 16px;
+  border-radius: 25px;
   cursor: pointer;
   font-size: 0.85em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: inherit;
+  transition: all 0.25s ease;
 }
 
-.consult {
-  background-color: #4caf50;
-  color: white;
+/* Hover effect: lift + glow */
+.btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.no-show {
-  background-color: #f57c00;
-  color: white;
+/* Action-specific styling */
+#revisit {
+  color: #007bff;
+  border: 1px solid rgba(0, 123, 255, 0.4);
 }
 
-.cancel {
-  background-color: #f44336;
-  color: white;
+#revisit:hover {
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+#consult {
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.4);
+  backdrop-filter: blur(4px); /* glass effect */
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#consult:hover {
+  box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+  background: rgba(40, 167, 69, 0.15); /* stronger tint on hover */
+}
+
+#no-show {
+  color: #b5651d;
+  border: 1px solid rgba(181, 101, 29, 0.4);
+}
+
+#no-show:hover {
+  box-shadow: 0 0 15px rgba(181, 101, 29, 0.5);
+}
+
+#cancel {
+  color: #ff4d4d;
+  border: 1px solid rgba(255, 77, 77, 0.4);
+}
+
+#cancel:hover {
+  box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+}
+
+/*  */
+/* Top section gradients */
+.top-gradient-1 {
+  background: linear-gradient(135deg, #e09e39, #a87410);
+}
+.top-gradient-2 {
+  background: linear-gradient(135deg, #da6a3f, #9a3e0d);
+}
+.top-gradient-3 {
+  background: linear-gradient(135deg, #6e614f, #3d3325);
+}
+.top-gradient-4 {
+  background: linear-gradient(135deg, #408e4b, #1e4e26);
+}
+.top-gradient-5 {
+  background: linear-gradient(135deg, #4598a8, #1e4f58);
+}
+.top-gradient-6 {
+  background: linear-gradient(135deg, #2a4f87, #142747);
+}
+.top-gradient-7 {
+  background: linear-gradient(135deg, #507caf, #1f3c5c);
+}
+.top-gradient-8 {
+  background: linear-gradient(135deg, #8667a1, #4b3560);
+}
+.top-gradient-9 {
+  background: linear-gradient(135deg, #e079a6, #a8426f);
+}
+
+/* Bottom section gradients */
+.bottom-gradient-1 {
+  background: linear-gradient(135deg, #efc153, #fff3c4);
+}
+.bottom-gradient-2 {
+  background: linear-gradient(135deg, #e07d4d, #ffd2b8);
+}
+.bottom-gradient-3 {
+  background: linear-gradient(135deg, #908274, #d5cbbf);
+}
+.bottom-gradient-4 {
+  background: linear-gradient(135deg, #74ab62, #d4f4c9);
+}
+.bottom-gradient-5 {
+  background: linear-gradient(135deg, #6bb4ca, #d4f2fa);
+}
+.bottom-gradient-6 {
+  background: linear-gradient(135deg, #507caf, #c0d9f4);
+}
+.bottom-gradient-7 {
+  background: linear-gradient(135deg, #614188, #d3c2e7);
+}
+.bottom-gradient-8 {
+  background: linear-gradient(135deg, #dd5a99, #ffc9e2);
+}
+.bottom-gradient-9 {
+  background: linear-gradient(135deg, #e079a6, #ffc7dc);
 }

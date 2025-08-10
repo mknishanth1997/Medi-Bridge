@@ -1,66 +1,172 @@
-/* PatientTable.css */
-
-.patient-table-container {
-  max-width: 900px;
+.pt-patient-table-container {
+  max-width: 1000px;
   margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #f9f9fb;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 0.6s ease;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: pt-fadeIn 0.8s ease-in-out;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
 }
 
-.patient-table-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #222;
-  text-align: center;
+.pt-patient-table-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+  text-align: left;
+  letter-spacing: -0.025em;
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
 }
 
-.patient-search-bar {
+.pt-patient-search-bar {
   width: 100%;
-  padding: 10px 14px;
+  max-width: 400px;
+  padding: 12px 16px;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  transition: border 0.3s;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.patient-search-bar:focus {
+.pt-patient-search-bar:focus {
   border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  transform: translateY(-1px);
 }
 
-.rdt_Table {
-  font-size: 1.05rem;
+.pt-patient-search-bar::placeholder {
+  color: #94a3b8;
+  font-style: italic;
 }
 
-.rdt_TableRow:hover {
+/* DataTable Styling */
+.pt-rdt_Table {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.95rem;
+  border: 1px solid #e2e8f0;
+  max-height: 320px; /* Fixed height for 5 rows */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.pt-rdt_TableHeadRow {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky; /* Keep header fixed */
+  top: 0;
+  z-index: 1;
+}
+
+.pt-rdt_TableRow {
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
+  min-height: 56px; /* Consistent row height */
+}
+
+.pt-rdt_TableRow:hover {
   background-color: #f0f4ff;
-  transition: background-color 0.3s;
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.userTableButton {
-  padding: 6px 12px;
+.pt-rdt_TableCol {
+  padding: 1rem;
+  color: #1e293b;
+}
+
+.pt-rdt_TableCell {
+  padding: 1rem;
+  color: #334155;
+}
+
+/* Action Button */
+.pt-patientTableButton {
+  padding: 8px 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   background-color: #3b82f6;
-  color: white;
+  color: #ffffff;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.userTableButton:hover {
+.pt-patientTableButton:hover {
   background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes fadeIn {
+.pt-patientTableButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Urgency Indicator */
+.pt-urgency-button[style*='backgroundColor'] {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pt-urgency-button[style*='backgroundColor']:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pt-patient-table-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .pt-patient-table-title {
+    font-size: 1.5rem;
+  }
+
+  .pt-patient-search-bar {
+    max-width: 100%;
+  }
+
+  .pt-rdt_Table {
+    font-size: 0.9rem;
+    max-height: 280px; /* Slightly smaller for mobile */
+  }
+
+  .pt-patientTableButton {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation */
+@keyframes pt-fadeIn {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;

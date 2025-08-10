@@ -52,9 +52,9 @@ export type Visit = {
   visitId: string;
   date: string;
   time: string;
-  reason: string;
-  doctor: string;
-  firstVisit: boolean;
+  reason?: string;
+  doctor?: string;
+  firstVisit?: boolean;
   status: string;
 
   vitals?: {

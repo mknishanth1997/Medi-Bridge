@@ -1,93 +1,128 @@
 @import url(../../Styles/Variables.css);
-
-/* Sidebar base styles */
+/* ===== Sidebar Base ===== */
 .side-bar {
   width: 250px;
   height: 100vh;
-  background-color: var(--background-color);
-  border-right: 1px solid var(--border-color);
+  /* background: var(--primary-color); */
+  background: linear-gradient(180deg, #102a43 0%, #153a5f 100%);
+  /* Add this to create a shadow on the right edge */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-lg) var(--spacing-md);
+  padding: 0 12px;
   box-sizing: border-box;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Logo section */
+/* ===== Profile Section ===== */
 .sidebar-logo-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: var(--spacing-2xl);
+  padding: 24px 16px;
+  margin: 20px 0 32px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .sidebar-logo-section img {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--border-radius-full);
-  margin-right: var(--spacing-md);
-}
-
-.header-doc-details {
-  display: flex;
-  flex-direction: column;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  margin-bottom: 10px;
 }
 
 .header-doc-name {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--text-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
   margin: 0;
 }
 
 .header-doc-position {
-  font-size: var(--font-size-sm);
-  color: var(--text-light-color);
-  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+  margin: 4px 0 0 0;
 }
 
-/* Nav section */
+/* ===== Nav Links ===== */
 .actual-side-bar ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .actual-side-bar li + li {
-  margin-top: var(--spacing-sm);
+  margin-top: 4px;
 }
 
-/* NavLink base styles */
 .actual-side-bar a {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
   text-decoration: none;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--border-radius-md);
-  color: var(--text-color);
-  font-weight: var(--font-weight-medium);
-  transition: background-color var(--transition-speed-fast) var(--transition-timing-ease);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.25s ease;
 }
 
-/* Active link styling */
-.actual-side-bar a.active {
-  background-color: var(--light-color);
-  font-weight: var(--font-weight-semibold);
-}
-
-/* Hover styles */
-.actual-side-bar a:hover {
-  background-color: var(--light-color);
-}
-
-/* Text inside NavLink */
-.actual-side-bar a p {
-  margin: 0;
-  font-size: var(--font-size-base);
-}
-
-/* Icons inside NavLink */
 .actual-side-bar a svg {
   flex-shrink: 0;
-  font-size: 1.2rem;
-  color: var(--text-light-color);
+  width: 22px;
+  height: 22px;
+  transition: transform 0.2s ease;
+}
+
+.actual-side-bar a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(3px);
+}
+
+.actual-side-bar a:hover svg {
+  transform: scale(1.1);
+}
+
+/* ===== Active State ===== */
+.actual-side-bar a.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #4da3ff; /* stronger highlight */
+  color: white;
+  font-weight: 600;
+  padding-left: 10px; /* adjust for border */
+}
+
+.actual-side-bar a.active svg {
+  color: #4da3ff;
+}
+.sha:hover .sidebar-icon-animation {
+  animation: wave-bounce 0.6s ease-in-out;
+  transform-origin: center; /* keeps the rotation smooth */
+}
+
+@keyframes wave-bounce {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  20% {
+    transform: rotate(-12deg) translateX(-1px);
+  }
+  40% {
+    transform: rotate(12deg) translateX(1px);
+  }
+  60% {
+    transform: rotate(-6deg) translateX(-0.5px);
+  }
+  80% {
+    transform: rotate(6deg) translateX(0.5px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
 }

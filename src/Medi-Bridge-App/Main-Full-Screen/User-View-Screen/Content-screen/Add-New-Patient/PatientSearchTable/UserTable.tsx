@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import { useData } from '../../../../../context/DataContext';
 import './UserTable.css';
@@ -43,11 +43,6 @@ function PatientTable({ onEditPatient }: UserTableProps) {
   // Columns
   const columns: TableColumn<Appointment>[] = [
     {
-      name: 'Patient ID',
-      selector: row => row.patientId,
-      sortable: true,
-    },
-    {
       name: 'Name',
       selector: row => row.patientName,
       sortable: true,
@@ -64,6 +59,10 @@ function PatientTable({ onEditPatient }: UserTableProps) {
     {
       name: 'Phone Number',
       selector: row => row.patientPhoneNumber,
+    },
+    {
+      name: 'Urgency',
+      cell: row => <UrgencyIndicator age={row.patientAge}></UrgencyIndicator>,
     },
     {
       name: 'Action',
@@ -96,7 +95,7 @@ function PatientTable({ onEditPatient }: UserTableProps) {
         columns={columns}
         data={filteredData}
         fixedHeader
-        fixedHeaderScrollHeight="300px"
+        // fixedHeaderScrollHeight="300px"
         dense={false}
         highlightOnHover
         striped
@@ -107,3 +106,39 @@ function PatientTable({ onEditPatient }: UserTableProps) {
 }
 
 export default PatientTable;
+
+function UrgencyIndicator({ age }) {
+  const [urgency, setUrgency] = useState('');
+
+  const colors = {
+    critical: '#DC2626', // Vibrant red for high urgency
+    high: '#F97316', // Bright orange for noticeable contrast
+    medium: '#F59E0B', // Warm amber for middle ground
+    low: '#10B981', // Fresh green for lower urgency
+    none: '#3B82F6', // Cool blue for no urgency
+  };
+
+  useEffect(() => {
+    if (age >= 80) setUrgency('critical');
+    else if (age >= 60) setUrgency('high');
+    else if (age >= 40) setUrgency('medium');
+    else if (age >= 20) setUrgency('low');
+    else setUrgency('none');
+  }, [age]);
+
+  return (
+    <button
+      style={{
+        backgroundColor: colors[urgency],
+        color: '#fff',
+        padding: '0.5rem 1rem',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+      }}
+    >
+      {urgency.toUpperCase()}
+    </button>
+  );
+}

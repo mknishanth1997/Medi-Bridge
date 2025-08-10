@@ -1,0 +1,83 @@
+/* AddPatient.css */
+
+.add-patient {
+  max-width: 1140px;
+  margin: 2.5rem auto; /* More margin for prominence */
+  padding: 0 2rem;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Increased gap */
+}
+
+.wrap {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* New Patient Button */
+.add-patient button {
+  align-self: flex-end;
+  padding: 12px 24px; /* Larger padding */
+  font-size: 1.1rem; /* Bigger text */
+  font-weight: 700; /* Bolder */
+  color: #ffffff;
+  background-color: #10b981; /* Vibrant green */
+  border: none;
+  border-radius: 12px; /* Slightly larger radius */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-patient button:hover {
+  background-color: #059669;
+  transform: scale(1.05); /* Slight scale for pop */
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.25),
+    0 0 0 4px rgba(16, 185, 129, 0.3); /* Glow effect */
+}
+
+.add-patient button:active {
+  transform: scale(1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .add-patient {
+    margin: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .wrap {
+    padding: 1rem;
+  }
+
+  .add-patient button {
+    align-self: stretch;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

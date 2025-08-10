@@ -1,0 +1,34 @@
+@import url(../../../../Styles/Variables.css);
+
+.pending-app-container {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: relative;
+}
+.heading-pa {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #102a43 0%, #153a5f 100%);
+  color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  /* border: 10px black solid; */
+}
+
+.heading-pa h1 {
+  font-size: 2.5rem;
+}
+
+.pending-card-all {
+  /* height: 100%; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  padding: 70px;
+  /* border: 10px black solid; */
+  gap: 16px;
+  grid-row-gap: 24px;
+}

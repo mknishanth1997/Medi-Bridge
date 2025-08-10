@@ -23,9 +23,10 @@ export function FinishedPersonCard({
   isFormOpen,
   setPatientId,
   setAppointmentId,
+  index,
 }) {
   const [imgSrc, altText] = getImageDetails(age, gender);
-
+  const colorIndex = (index % 9) + 1; // loops 1-9
   function cancelTheAppointment() {
     console.log(appointments);
     const updatedAppointments = appointments.map(app => {
@@ -42,36 +43,53 @@ export function FinishedPersonCard({
   }
 
   return (
-    <div className="card">
+    // <div className="card">
+    //   <div className="card-header">
+    //     <img src={imgSrc} alt={altText} className="avatar" />
+    //     <div className="patient-info">
+    //       <div className="name">{name}</div>
+    //       <div className="details">{`${age} years old, ${gender}`}</div>
+    //     </div>
+    //     <div className="menu">⋮</div>
+    //   </div>
+
+    //   <div className="card-footer">
+    //     <button
+    //       className="btn consult"
+    //       onClick={() => {
+    //         isFormOpen(true);
+    //         // moveToTheFinishedAppointment();
+    //         setPatientId(bookedApp.patientId);
+    //         setAppointmentId(bookedApp.appointmentId);
+    //       }}
+    //     >
+    //       {'Add Patient History'}
+    //     </button>
+
+    //     <button className="btn cancel" onClick={() => cancelTheAppointment()}>
+    //       Cancell
+    //     </button>
+    //   </div>
+    // </div>
+    <div className="info-card-pending">
+      <div className="colored-section">
+        <div className={`top-section top-gradient-${colorIndex}`}>
+          <h1>{`${index + 1}`}</h1>
+        </div>
+        <div className={`bottom-section bottom-gradient-${colorIndex}`}></div>
+      </div>
       <div className="card-header">
         <img src={imgSrc} alt={altText} className="avatar" />
         <div className="patient-info">
           <div className="name">{name}</div>
           <div className="details">{`${age} years old, ${gender}`}</div>
         </div>
-        <div className="menu">⋮</div>
+        <div className="short-border"></div>
       </div>
-
-      <div className="card-body">
-        <div className="info">
-          <span className="label">Patient ID</span>
-          <span className="value">{patientId === (undefined | null) ? 'No Id' : patientId}</span>
-        </div>
-        <div className="info">
-          <span className="label">Token</span>
-          <span className="value">{`#${token}`}</span>
-        </div>
-        <div className="info time">
-          <span className="value">{time}</span>
-        </div>
-        <div className="info date">
-          <span className="value">{date}</span>
-        </div>
-      </div>
-
-      <div className="card-footer">
+      <div className="card-footerr">
         <button
-          className="btn consult"
+          className="btn consultt"
+          id="revisit"
           onClick={() => {
             isFormOpen(true);
             // moveToTheFinishedAppointment();
@@ -79,11 +97,11 @@ export function FinishedPersonCard({
             setAppointmentId(bookedApp.appointmentId);
           }}
         >
-          {'Add Patient History'}
+          Add Patient History
         </button>
 
-        <button className="btn cancel" onClick={() => cancelTheAppointment()}>
-          Cancell
+        <button className="btn cancell" id="cancel" onClick={() => cancelTheAppointment()}>
+          Cancel
         </button>
       </div>
     </div>

@@ -10,14 +10,20 @@ import {
   RevenueAnalysisIcon,
 } from '../../../assets/icons/SVGCODE';
 import Man from '../../../assets/Logo/Man.png';
+import DoctorReal from '../../../assets/Logo/DoctorReal.webp';
 import { ROUTES } from '../../types/DATATYPES';
+import { useState } from 'react';
 
 export function SideBar() {
+  const iconColor = '#FDFDFD';
+  const styClsNm = 'sidebar-icon-animation';
+
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <>
       <aside className="side-bar">
         <div className="sidebar-logo-section">
-          <img src={Man} alt="Man Logo" />
+          <img src={DoctorReal} alt="Man Logo" />
           <div className="header-doc-details">
             <h3 className="header-doc-name">Dr. Nishanth</h3>
             <p className="header-doc-position">Administrator</p>
@@ -26,51 +32,64 @@ export function SideBar() {
         <div className="actual-side-bar">
           <ul>
             <li>
-              <NavLink to={ROUTES.HOME} className="sidebar-home">
+              <NavLink to={ROUTES.HOME} className="sidebar-home sha">
+                {/* ICON FIRST, TEXT SECOND */}
+                <HomeIcon className={styClsNm} color={iconColor} />
                 <p>Home</p>
-                <HomeIcon />
               </NavLink>
             </li>
 
             <li>
-              <NavLink to={ROUTES.ADDPATIENT} className="sidebar-add-patient">
+              <NavLink to={ROUTES.ADDPATIENT} className="sidebar-add-patient sha">
+                {/* ICON FIRST, TEXT SECOND */}
+                <AddPatientIcon className={styClsNm} color={iconColor} />
                 <p>Add Patient</p>
-                <AddPatientIcon />
               </NavLink>
             </li>
 
             <li>
-              <NavLink to={ROUTES.PENDINGAPPOINTMENT} className="sidebar-pending-appointments">
+              <NavLink to={ROUTES.PENDINGAPPOINTMENT} className="sidebar-pending-appointments sha">
+                {/* ICON FIRST, TEXT SECOND */}
+                <PendingAppointmentIcon className={styClsNm} color={iconColor} />
                 <p>Pending Appointments</p>
-                <PendingAppointmentIcon />
               </NavLink>
             </li>
 
             <li>
-              <NavLink to={ROUTES.FINISHEDAPPOINTMENT} className="sidebar-finished-appointments">
+              <NavLink
+                to={ROUTES.FINISHEDAPPOINTMENT}
+                className="sidebar-finished-appointments sha"
+              >
+                {/* ICON FIRST, TEXT SECOND */}
+                <FinishedAppointmentIcon className={styClsNm} color={iconColor} />
                 <p>Finished Appointments</p>
-                <FinishedAppointmentIcon />
               </NavLink>
             </li>
 
             <li>
-              <NavLink to={ROUTES.PATIENTHISTORY} className="sidebar-patient-history">
+              <NavLink to={ROUTES.PATIENTHISTORY} className="sidebar-patient-history sha">
+                {/* ICON FIRST, TEXT SECOND */}
+                <PatientHistoryIcon className={styClsNm} color={iconColor} />
                 <p>Patient History</p>
-                <PatientHistoryIcon />
               </NavLink>
             </li>
 
             <li>
-              <NavLink to={ROUTES.REVENUEANALYSIS} className="sidebar-revenue-analysis">
+              <NavLink to={ROUTES.REVENUEANALYSIS} className="sidebar-revenue-analysis sha">
+                {/* ICON FIRST, TEXT SECOND */}
+                <RevenueAnalysisIcon className={styClsNm} color={iconColor} />
                 <p>Revenue Analysis</p>
-                <RevenueAnalysisIcon />
               </NavLink>
             </li>
 
             <li>
-              <NavLink to={ROUTES.DOCTORPERFORMANCEANALYSIS} className="sidebar-doctor-performance">
+              <NavLink
+                to={ROUTES.DOCTORPERFORMANCEANALYSIS}
+                className="sidebar-doctor-performance sha"
+              >
+                {/* ICON FIRST, TEXT SECOND */}
+                <DoctorPerformanceIcon className={styClsNm} color={iconColor} />
                 <p>Doctor Performance</p>
-                <DoctorPerformanceIcon />
               </NavLink>
             </li>
           </ul>
