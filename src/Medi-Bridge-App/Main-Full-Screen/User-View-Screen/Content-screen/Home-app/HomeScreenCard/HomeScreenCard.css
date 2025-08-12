@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+.homeScreenCard {
+  /* border: solid; */
+  width: 450px;
+  height: 400px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 24px;
+  position: relative;
+  /* background: linear-gradient(to bottom right, #f8d22e, #ffb969); */
+  box-shadow: 20px 20px 20px 0px rgba(0, 0, 0, 0.5);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+.homeScreenCard > * {
+  /* border: solid; */
+}
+.starter-text {
+  display: flex;
+  flex: 1;
+  font-size: 1.1rem;
+  /* border: solid; */
+  align-items: center;
+  gap: 4px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.header-text-home-scree-app {
+  flex: 7;
+  /* border: solid; */
+  display: flex;
+  flex-direction: column;
+}
+.header-text-home-scree-app > :nth-child(1) {
+  flex: 1;
+  /* border: solid; */
+}
+.header-text-home-scree-app > :nth-child(2) {
+  flex: 1;
+  /* border: solid; */
+}
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.some-dummy-texting {
+  display: flex;
+  gap: 16px;
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+.some-dummy-texting > :nth-child(1) {
+  border-right: solid;
+  padding-right: 8px;
+}
+
+.home-screen-card-header-img-container {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.home-screen-card-header-img-container > * {
+  /* border: solid; */
+}
+.someanotherdummytext {
+  display: flex;
+  gap: 8px;
+  font-size: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.home-screen-card-header-img-container img {
+  position: absolute;
+  right: 0;
+  width: 55%;
+  height: auto;
+}
+.homeScreenCard {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+  cursor: pointer;
+}
+
+.homeScreenCard:hover {
+  transform: scale(1.05); /* slightly bigger */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* stronger shadow */
+  filter: brightness(1.05); /* subtle brighten */
+}
