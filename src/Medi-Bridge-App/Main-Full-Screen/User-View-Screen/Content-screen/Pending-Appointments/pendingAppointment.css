@@ -31,4 +31,5 @@
   /* border: 10px black solid; */
   gap: 16px;
   grid-row-gap: 24px;
+  width: 100%;
 }

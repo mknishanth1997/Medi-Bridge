@@ -1,0 +1,48 @@
+.TooltipWrapper__content {
+  background-color: #222; /* dark, striking */
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  z-index: 9999;
+}
+
+.TooltipWrapper__arrow {
+  fill: #222;
+}
+
+/* Optional: fade and slide animations */
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-side='top'] > .TooltipWrapper__content {
+  animation-name: slideDownAndFade;
+}
+
+[data-side='bottom'] > .TooltipWrapper__content {
+  animation-name: slideUpAndFade;
+}

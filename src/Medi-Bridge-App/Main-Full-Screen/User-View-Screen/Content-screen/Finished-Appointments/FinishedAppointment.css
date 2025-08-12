@@ -4,3 +4,30 @@
   align-items: center;
   z-index: 1000;
 }
+:root {
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+body,
+p,
+span,
+li {
+  font-family: var(--font-body);
+}
+
+.stat,
+.vital,
+.code-text {
+  font-family: var(--font-mono);
+}

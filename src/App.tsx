@@ -9,6 +9,7 @@ import { PatientHistory } from './Medi-Bridge-App/Main-Full-Screen/User-View-Scr
 import { RevenueAnalysis } from './Medi-Bridge-App/Main-Full-Screen/User-View-Screen/Content-screen/Revenue-Analysis/RevenueAnalysis';
 import { DoctorPerformanceAnalysis } from './Medi-Bridge-App/Main-Full-Screen/User-View-Screen/Content-screen/Doctor-Performance/DoctorPerformance';
 import { DataProvider } from './Medi-Bridge-App/context/DataContext';
+import { PatientDisplayScreen } from './Medi-Bridge-App/Main-Full-Screen/User-View-Screen/Content-screen/Patient-History/Patient-Display-Screen/PatientDisplayScreen';
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
             <Route path="patientHistory" element={<PatientHistory />} />
             <Route path="revenueAnalysis" element={<RevenueAnalysis />} />
             <Route path="doctorPerformanceAnalysis" element={<DoctorPerformanceAnalysis />} />
+            <Route
+              path="doctorDisplayScreen"
+              element={<PatientDisplayScreen></PatientDisplayScreen>}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

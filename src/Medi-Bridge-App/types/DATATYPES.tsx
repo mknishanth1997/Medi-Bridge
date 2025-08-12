@@ -8,6 +8,7 @@ export const ROUTES = {
   PATIENTHISTORY: '/patientHistory',
   REVENUEANALYSIS: '/revenueAnalysis',
   DOCTORPERFORMANCEANALYSIS: '/doctorPerformanceAnalysis',
+  DOCTORDISPLAYSCREEN: './doctorDisplayScreen',
 };
 
 // Individual Appointment Data

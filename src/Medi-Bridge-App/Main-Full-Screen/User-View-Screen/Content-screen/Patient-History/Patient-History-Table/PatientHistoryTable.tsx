@@ -5,7 +5,9 @@ import { useEffect, useState } from 'react';
 import { FaPhone, FaEnvelope, FaTrash, FaEye, FaEdit, FaExclamation } from 'react-icons/fa';
 import './PatientHistoryTable.css';
 import { a } from '../../../../../../Testing/Vanilla-Ts-1/plainTS';
-export function PatientHistoryTable() {
+import { NavLink } from 'react-router-dom';
+import { ROUTES } from '../../../../../types/DATATYPES';
+export function PatientHistoryTable({ setIsPtntScrnVisible, setPatientId }) {
   const { patientHistories, savePatientHistories } = useData(); // You'll plug this in later
 
   // Placeholder data
@@ -80,7 +82,20 @@ export function PatientHistoryTable() {
     { name: 'Call', selector: row => <Button variant={'call'}>Call</Button> },
     { name: 'Message', selector: row => <Button variant={'message'}>Message</Button> },
     { name: 'Delete', selector: row => <Button variant={'delete'}>Call</Button> },
-    { name: 'View', selector: row => <Button variant={'view'}>Call</Button> },
+    {
+      name: 'View',
+      selector: row => (
+        <Button
+          variant={'view'}
+          onClick={() => {
+            setPatientId(row);
+            setIsPtntScrnVisible(true);
+          }}
+        >
+          view
+        </Button>
+      ),
+    },
     { name: 'Edit', selector: row => <Button variant={'edit'}>Call</Button> },
     { name: '', selector: row => '⋮' },
   ];
@@ -109,7 +124,9 @@ export function PatientHistoryTable() {
   );
 }
 
-function pickRandomLink(gender) {
+// Other program:
+
+export function pickRandomLink(gender) {
   const peopleImageLink = {
     man: [
       'https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
