@@ -37,7 +37,7 @@ export function FinishedAppointment() {
     <>
       <div className="pending-app-container">
         <div className="heading-pa">
-          <h1>Pending Appointment</h1>
+          <h1 id={"heading-paa"}>Pending Appointment</h1>
         </div>
         <div className="pending-card-all">
           {' '}

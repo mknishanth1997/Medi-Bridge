@@ -15,7 +15,7 @@ export function PatientHistory() {
   const patientHistoryTable = (
     <div>
       <div className="heading-pa">
-        <h1>Patient History</h1>
+        <h1 id={"heading-paa"}>Patient History</h1>
       </div>
       <div>
         <PatientHistoryTable

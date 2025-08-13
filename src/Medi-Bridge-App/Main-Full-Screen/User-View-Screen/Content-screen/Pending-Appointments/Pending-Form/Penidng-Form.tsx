@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useData } from '../../../../../context/DataContext';
 import './pending-form.css';
-const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => {
+
+const PatientForm = ({ isFormOpen = "", patientId = "", setPatientId = "", appointmentId = "" }) => {
   const { appointments, patientHistories, saveAppointments, savePatientHistories } = useData();
   const [diagnosis, setDiagnosis] = useState('');
   const [medications, setMedications] = useState('');
@@ -40,17 +41,9 @@ const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => 
     updatePatientHistories(id);
   }
 
-  function updatePatientHistories(patientId: string) {
-    let newVisit: Visit | undefined;
-    let patientDetails:
-      | {
-          name: string;
-          age: number;
-          gender: string;
-          phoneNumber: string;
-          emailId: string;
-        }
-      | undefined;
+  function updatePatientHistories(patientId) {
+    let newVisit;
+    let patientDetails;
 
     // Find matching appointment
     appointments.forEach(app => {
@@ -106,7 +99,7 @@ const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => 
         if (ph.patientId === patientId) {
           return {
             ...ph,
-            visits: [...ph.visits, newVisit!],
+            visits: [...ph.visits, newVisit],
           };
         }
         return ph;
@@ -128,7 +121,7 @@ const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => 
   }
 
   return (
-    <div className="patient-form">
+    <div className="patient-formr">
       <form
         onSubmit={e => {
           e.preventDefault();
@@ -138,10 +131,10 @@ const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => 
           isFormOpen(false);
           // card logic
         }}
-        className="patient-form"
+        className="pending-patient-form"
       >
         <h2>Add Patient History</h2>
-        <div className="form-section">
+        <div className="pending-form-section">
           <label>Enter patient diagnosis and treatment details</label>
           <textarea
             placeholder="Enter summary of doctor's diagnosis..."
@@ -149,7 +142,7 @@ const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => 
             onChange={e => setDiagnosis(e.target.value)}
           />
         </div>
-        <div className="form-section">
+        <div className="pending-form-section">
           <label>Prescribed Medications</label>
           <input
             type="text"
@@ -159,9 +152,9 @@ const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => 
           />
           <small>Allow multiple medication entries separated by commas</small>
         </div>
-        <div className="form-section">
+        <div className="pending-form-section">
           <label>Payment Details</label>
-          <div className="radio-group">
+          <div className="pending-radio-group">
             <label>
               <input
                 type="radio"
@@ -220,9 +213,9 @@ const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => 
             onChange={e => setAmountPaid(e.target.value)}
           />
         </div>
-        <div className="form-section">
+        <div className="pending-form-section">
           <label>Pharmacy Confirmation</label>
-          <div className="radio-group">
+          <div className="pending-radio-group">
             <label>
               <input
                 type="radio"
@@ -245,7 +238,7 @@ const PatientForm = ({ isFormOpen, patientId, setPatientId, appointmentId }) => 
             </label>
           </div>
         </div>
-        <div className="form-section">
+        <div className="pending-form-section">
           <label>Additional Information (Optional)</label>
           <input
             type="text"

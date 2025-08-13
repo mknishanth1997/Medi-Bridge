@@ -1,79 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 .patient-history-table-container {
-  background: #ffffff;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  margin: 50px;
-  margin-top: 100px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.08),
+          0 2px 8px rgba(0, 0, 0, 0.04);
+  margin: 2rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.patient-history-table-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px 20px 0 0;
 }
 
 .patient-history-table-container .search-bar {
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 
 .patient-history-table-container .search-bar input {
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 0.9rem;
-  transition: 0.3s ease;
+  padding: 0.875rem 1.25rem;
+  padding-left: 3rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #334155;
+  min-width: 300px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.patient-history-table-container .search-bar input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
 }
 
 .patient-history-table-container .search-bar input:focus {
-  border-color: #4a90e2;
+  border-color: #667eea;
   outline: none;
-  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+  box-shadow:
+          0 0 0 3px rgba(102, 126, 234, 0.1),
+          0 4px 12px rgba(102, 126, 234, 0.15);
+  background: #ffffff;
 }
 
+/* Table Styling */
 .patient-history-table-container .rdt_Table {
-  border-radius: 10px;
+  border-radius: 16px;
   overflow: hidden;
-  overflow-y: auto;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .patient-history-table-container .rdt_TableHead {
-  background: #f4f6f8;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 2px solid #e2e8f0;
 }
 
-.patient-history-table-container .rdt_TableRow:hover {
-  background: rgba(74, 144, 226, 0.05);
+.patient-history-table-container .rdt_TableHeadRow {
+  min-height: 60px;
 }
 
 .patient-history-table-container .rdt_TableCol {
-  font-weight: bold;
-  color: #333;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  padding: 1rem 0.75rem;
 }
 
+.patient-history-table-container .rdt_TableRow {
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
+  min-height: 70px;
+}
+
+.patient-history-table-container .rdt_TableRow:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.02) 100%);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.08);
+  transform: translateY(-1px);
+}
+
+.patient-history-table-container .rdt_TableCell {
+  padding: 1rem 0.75rem;
+  font-size: 0.875rem;
+  color: #1f2937;
+}
+
+/* Custom Button Styles */
 .patient-history-table-container .custom-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   color: white;
-  font-size: 0.85rem;
+  font-size: 0.8125rem;
   font-weight: 500;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
-  min-width: 90px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 85px;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.patient-history-table-container .custom-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.patient-history-table-container .custom-btn:hover::before {
+  left: 100%;
 }
 
 .patient-history-table-container .custom-btn svg {
-  font-size: 1rem;
+  font-size: 0.875rem;
+  transition: transform 0.2s ease;
 }
 
 .patient-history-table-container .custom-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+          0 6px 20px rgba(0, 0, 0, 0.15),
+          0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.patient-history-table-container .custom-btn:hover svg {
+  transform: scale(1.1);
 }
 
 .patient-history-table-container .custom-btn:active {
-  transform: translateY(0px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modern Button Color Schemes */
+.patient-history-table-container .custom-btn[style*="background-color: rgb(67, 160, 71)"] {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+
+.patient-history-table-container .custom-btn[style*="background-color: rgb(30, 136, 229)"] {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+}
+
+.patient-history-table-container .custom-btn[style*="background-color: rgb(211, 47, 47)"] {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+}
+
+.patient-history-table-container .custom-btn[style*="background-color: rgb(109, 76, 65)"] {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+}
+
+.patient-history-table-container .custom-btn[style*="background-color: rgb(249, 168, 37)"] {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+
+/* Urgency Button Styling */
+.patient-history-table-container button[style*="background-color: rgb(220, 38, 38)"] {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+  animation: pulse-critical 2s infinite;
+}
+
+.patient-history-table-container button[style*="background-color: rgb(249, 115, 22)"] {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+}
+
+.patient-history-table-container button[style*="background-color: rgb(245, 158, 11)"] {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+
+.patient-history-table-container button[style*="background-color: rgb(16, 185, 129)"] {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+
+.patient-history-table-container button[style*="background-color: rgb(59, 130, 246)"] {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+}
+
+@keyframes pulse-critical {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(239, 68, 68, 0.8), 0 0 24px rgba(239, 68, 68, 0.3);
+  }
+}
+
+/* Enhanced scrollbar */
+.patient-history-table-container .rdt_Table::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.patient-history-table-container .rdt_Table::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.patient-history-table-container .rdt_Table::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.patient-history-table-container .rdt_Table::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .patient-history-table-container {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .patient-history-table-container .search-bar input {
+    min-width: 100%;
+  }
+
+  .patient-history-table-container .custom-btn {
+    min-width: 70px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Loading states and micro-interactions */
+.patient-history-table-container .rdt_TableCol:hover {
+  color: #667eea;
+  transition: color 0.2s ease;
+}
+
+.patient-history-table-container .rdt_Pagination {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  font-family: 'Inter', sans-serif;
 }

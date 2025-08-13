@@ -1,9 +1,4 @@
-.pending-app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1000;
-}
+
 :root {
   --font-heading: 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -30,4 +25,160 @@ li {
 .vital,
 .code-text {
   font-family: var(--font-mono);
+}
+/* Main container for the entire finished appointment section */
+.pending-app-container {
+  width: 100%;
+  min-height: 100vh;
+  /*background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);*/
+  /*padding: 2rem;*/
+  box-sizing: border-box;
+}
+
+/* Heading section */
+.heading-pa {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 1.5rem 0;
+}
+
+.heading-pa h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for all pending cards or the form */
+.pending-card-all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+/* When showing cards (not form) */
+.pending-card-all:not(:has(.patient-formr)) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  align-items: start;
+  justify-content: center;
+}
+
+/* When showing the patient form - ensure it's centered */
+.pending-card-all:has(.patient-formr) {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 200px);
+  padding: 2rem 0;
+}
+
+/* Ensure the form container takes proper space */
+.pending-card-all .patient-formr {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  min-height: auto;
+}
+
+/* Override any conflicting styles for the form */
+.pending-card-all .patient-formr .pending-patient-form {
+  width: 100%;
+  max-width: 800px;
+  margin: 0;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+/* Add some breathing room around cards */
+.pending-card-all > * {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Animation for smooth entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Empty state styling (when no appointments) */
+.pending-card-all:empty::before {
+  content: "No finished appointments to display";
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #64748b;
+  font-style: italic;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pending-app-container {
+    padding: 1rem;
+  }
+
+  .heading-pa h1 {
+    font-size: 2rem;
+  }
+
+  .heading-pa {
+    margin-bottom: 2rem;
+  }
+
+  .pending-card-all {
+    gap: 1.5rem;
+  }
+
+  .pending-card-all:not(:has(.patient-formr)) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pending-card-all .patient-formr {
+    max-width: 100%;
+  }
+
+  .pending-card-all .patient-formr .pending-patient-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading-pa h1 {
+    font-size: 1.75rem;
+  }
+
+  .pending-app-container {
+    padding: 0.5rem;
+  }
+
+  .pending-card-all:has(.patient-formr) {
+    padding: 1rem 0;
+    min-height: calc(100vh - 150px);
+  }
 }

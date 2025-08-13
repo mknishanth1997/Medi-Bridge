@@ -1,0 +1,490 @@
+@import url(../../Medi-Bridge-App/Styles/Variables.css);
+
+.modern-header {
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1.5rem 2rem;
+    /*padding: 1rem;*/
+    border-bottom: none;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+}
+
+.header-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: backgroundFloat 8s ease-in-out infinite;
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* LEFT SECTION */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hospital-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+}
+
+.hospital-logo:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: logoGlow 4s ease-in-out infinite;
+    z-index: 1;
+}
+
+.brand-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.brand-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    color: white;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.brand-highlight {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+}
+
+.brand-subtitle {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    font-weight: 500;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.02em;
+}
+
+/* RIGHT SECTION */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.stats-widget {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    padding: 0.875rem 1.25rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stats-widget:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.stats-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #10b981;
+    font-size: 1.25rem;
+}
+
+.pulse-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #10b981;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    opacity: 0.6;
+}
+
+.stats-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.stats-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1;
+}
+
+.stats-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.notification-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: white;
+    font-size: 1.25rem;
+}
+
+.notification-container:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.notification-container.active {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: notificationPulse 2s ease-in-out infinite;
+}
+
+.notification-ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.notification-container:active .notification-ripple {
+    width: 60px;
+    height: 60px;
+}
+
+.save-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.save-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.save-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.save-button-text {
+    position: relative;
+    z-index: 2;
+}
+
+.save-button-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+    transition: left 0.6s ease;
+}
+
+.save-button:hover .save-button-shine {
+    left: 100%;
+}
+
+/* ANIMATIONS */
+@keyframes backgroundFloat {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateX(0) rotate(0deg);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateX(10px) rotate(2deg);
+    }
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 0;
+    }
+}
+
+@keyframes notificationPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .modern-header {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .header-right {
+        gap: 1.5rem;
+    }
+
+    .stats-widget {
+        padding: 0.75rem 1rem;
+    }
+
+    .save-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-header {
+        padding: 1rem;
+    }
+
+    .header-left {
+        gap: 1rem;
+    }
+
+    .hospital-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .brand-title {
+        font-size: 1.75rem;
+    }
+
+    .brand-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .header-right {
+        gap: 1rem;
+    }
+
+    .stats-info {
+        display: none;
+    }
+
+    .stats-widget {
+        padding: 0.75rem;
+        min-width: auto;
+    }
+
+    .save-button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .brand-title {
+        font-size: 1.5rem;
+    }
+
+    .header-right {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+/*MOder Chatp*/
+.modern-header {
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 0.75rem 1.25rem; /* reduced from 1.5rem 2rem */
+    border-bottom: none;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-left {
+    gap: 1rem; /* was 1.5rem */
+}
+
+.hospital-logo {
+    width: 46px; /* was 60px */
+    height: 46px;
+    border-radius: 12px; /* slightly smaller radius to match reduced size */
+}
+
+.logo-glow {
+    width: 64px; /* was 80px */
+    height: 64px;
+}
+
+.brand-title {
+    font-size: 1.5rem; /* was 2rem */
+}
+
+.brand-subtitle {
+    font-size: 0.8rem; /* was 0.95rem */
+}
+
+/* RIGHT SECTION */
+.header-right {
+    gap: 1.25rem; /* was 2rem */
+}
+
+.stats-widget {
+    padding: 0.5rem 0.875rem; /* was 0.875rem 1.25rem */
+    border-radius: 12px;
+    gap: 0.75rem; /* was 1rem */
+}
+
+.stats-number {
+    font-size: 1.2rem; /* was 1.5rem */
+}
+
+.stats-label {
+    font-size: 0.7rem; /* was 0.8rem */
+}
+
+.notification-container {
+    width: 40px; /* was 48px */
+    height: 40px;
+    border-radius: 12px; /* was 14px */
+    font-size: 1rem; /* was 1.25rem */
+}
+
+.notification-dot {
+    top: 6px; /* was 8px */
+    right: 6px;
+    width: 7px;
+    height: 7px;
+}
+
+.save-button {
+    padding: 0.6rem 1.4rem; /* was 0.875rem 2rem */
+    border-radius: 12px; /* was 16px */
+    font-size: 0.85rem; /* was 0.95rem */
+    letter-spacing: 0.04em;
+}

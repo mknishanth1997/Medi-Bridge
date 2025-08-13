@@ -5,31 +5,36 @@
   height: 100%;
   background-color: white;
   position: relative;
+
 }
 .heading-pa {
   padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #102a43 0%, #153a5f 100%);
-  color: white;
+  /*background: linear-gradient(180deg, #102a43 0%, #153a5f 100%);*/
   position: sticky;
   top: 0;
   width: 100%;
   /* border: 10px black solid; */
+  color: #3b82f6;
 }
-
+#heading-paa{
+  color: #3b82f6;
+}
 .heading-pa h1 {
   font-size: 2.5rem;
+color: #3b82f6 !important;
 }
 
 .pending-card-all {
   /* height: 100%; */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  padding: 70px;
-  /* border: 10px black solid; */
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  /*padding: 70px;*/
+   border: 10px black solid;
   gap: 16px;
   grid-row-gap: 24px;
-  width: 100%;
+  max-width: 100px;
+  height: 100vh;
 }

@@ -4,7 +4,7 @@
     'sidebar header'
     'sidebar content';
   grid-template-columns: 250px 1fr; /* Sidebar fixed, content flexible */
-  grid-template-rows: auto 1fr; /* Header auto height, rest fills */
+  grid-template-rows: 100px 1fr; /* Header auto height, rest fills */
   height: 100vh; /* Full viewport height */
 }
 

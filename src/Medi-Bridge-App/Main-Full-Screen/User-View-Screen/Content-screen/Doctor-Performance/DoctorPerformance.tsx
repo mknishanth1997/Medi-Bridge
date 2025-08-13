@@ -1,5 +1,6 @@
 import './DoctorPerformance.css';
+import { TestHeader } from '../../../../../Testing/TestComponent-1/TestComp1';
 
 export function DoctorPerformanceAnalysis() {
-  return <h1>DoctorPerformanceAnalysis</h1>;
+  return <TestHeader></TestHeader>;
 }

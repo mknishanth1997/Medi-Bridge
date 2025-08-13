@@ -9,6 +9,17 @@ export function AddPatient() {
   return (
     <>
       <div className="add-patient">
+        {formVisible || (
+          <button
+            className="edit"
+            onClick={() => {
+              setSelectedPatientId(undefined); // new patient = no ID
+              setFormVisible(true); // show form
+            }}
+          >
+            + New Patient
+          </button>
+        )}
         <div className="wrap">
           {formVisible ? (
             <AddPatientDetailsForm
@@ -29,17 +40,7 @@ export function AddPatient() {
           )}
         </div>
         {/* New patient button */}
-        {formVisible || (
-          <button
-            className="edit"
-            onClick={() => {
-              setSelectedPatientId(undefined); // new patient = no ID
-              setFormVisible(true); // show form
-            }}
-          >
-            + New Patient
-          </button>
-        )}
+
       </div>
     </>
   );

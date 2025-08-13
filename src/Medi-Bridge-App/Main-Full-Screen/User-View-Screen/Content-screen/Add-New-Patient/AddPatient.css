@@ -1,10 +1,11 @@
 /* AddPatient.css */
 
 .add-patient {
-  max-width: 90%;
+  max-width: 100%;
+  height: 100vh;
   /*border: solid;*/
   margin: 2.5rem auto; /* More margin for prominence */
-  /*padding: 0 2rem;*/
+  padding: 0 2rem;
   /*font-family:*/
     'Inter',
     -apple-system,
@@ -14,9 +15,9 @@
     sans-serif;
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* Increased gap */
-
-
+  gap: .1rem; /* Increased gap */
+ /*border: solid;*/
+  scrollbar-width: none;
 }
 
 .wrap {
@@ -26,9 +27,6 @@
   /*padding: 2rem;*/
   animation: fadeIn 0.8s ease-in-out;
   /*background: linear-gradient(135deg, #3b82f6, #1d4ed8);*/
-  overflow-y: auto;
-  height: 70vh;
-  scrollbar-width: none;
   /*border: solid hotpink;*/
   max-width: 100%;
   box-shadow:

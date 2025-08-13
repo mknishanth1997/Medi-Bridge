@@ -2,11 +2,13 @@ import './PatientHistoryTable.css';
 import { useData } from '../../../../../context/DataContext';
 import DataTable from 'react-data-table-component';
 import { useEffect, useState } from 'react';
-import { FaPhone, FaEnvelope, FaTrash, FaEye, FaEdit, FaExclamation } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaTrash, FaEye, FaEdit, FaExclamation, FaWhatsapp } from 'react-icons/fa';
 import './PatientHistoryTable.css';
 import { a } from '../../../../../../Testing/Vanilla-Ts-1/plainTS';
 import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../../../../../types/DATATYPES';
+import { TooltipWrapper } from '../../../../../../ToolTipWrapper/ToolTipWrapper';
+import { AlertDialogWrapper } from '../../../../../../Alert-Dialog-Radix/AlertDialogRadix';
 export function PatientHistoryTable({ setIsPtntScrnVisible, setPatientId }) {
   const { patientHistories, savePatientHistories } = useData(); // You'll plug this in later
 
@@ -79,9 +81,58 @@ export function PatientHistoryTable({ setIsPtntScrnVisible, setPatientId }) {
       selector: row => <UrgencyIndicator age={row.age}></UrgencyIndicator>,
       sortable: true,
     },
-    { name: 'Call', selector: row => <Button variant={'call'}>Call</Button> },
-    { name: 'Message', selector: row => <Button variant={'message'}>Message</Button> },
-    { name: 'Delete', selector: row => <Button variant={'delete'}>Call</Button> },
+    {
+      name: 'Call',
+      selector: row => (
+        <AlertDialogWrapper
+          trigger={
+            <button style={{ all: 'unset', cursor: 'pointer' }}>
+              <Button variant="call">Call</Button>
+            </button>
+          }
+          title="Want to call this patient?"
+          description="Are you sure you want to initiate a call?"
+          actionLabel="Yes, call"
+          cancelLabel="Cancel"
+          onAction={() => console.log('Calling patient...')}
+        />
+      )
+    },
+    {
+      name: 'Message',
+      selector: row => (
+        <AlertDialogWrapper
+          trigger={
+            <button style={{ all: 'unset', cursor: 'pointer' }}>
+              <Button variant="message">Message</Button>
+            </button>
+          }
+          title="Want to message this patient?"
+          description="Are you sure you want to send a message?"
+          actionLabel="Yes, send"
+          cancelLabel="Cancel"
+          onAction={() => console.log('Messaging patient...')}
+        />
+      )
+    },
+    {
+      name: 'Delete',
+      selector: row => (
+        <AlertDialogWrapper
+          trigger={
+            <button style={{ all: 'unset', cursor: 'pointer' }}>
+              <Button variant="delete">Delete</Button>
+            </button>
+          }
+          title="Delete this patient record?"
+          description="This action cannot be undone."
+          actionLabel="Yes, delete"
+          cancelLabel="Cancel"
+          onAction={() => console.log('Deleting patient record...')}
+        />
+      )
+    },
+
     {
       name: 'View',
       selector: row => (
@@ -96,9 +147,29 @@ export function PatientHistoryTable({ setIsPtntScrnVisible, setPatientId }) {
         </Button>
       ),
     },
-    { name: 'Edit', selector: row => <Button variant={'edit'}>Call</Button> },
+    {
+      name: 'Edit',
+      selector: row => (
+        <AlertDialogWrapper
+          trigger={
+            <button style={{ all: 'unset', cursor: 'pointer' }}>
+              <Button variant="edit">Call</Button>
+            </button>
+          }
+          title="Want to edit Patient files?"
+          description="Are you sure you want to edit the Patient files?"
+          actionLabel="Yes, send"
+          cancelLabel="Cancel"
+          onAction={() => console.log('Opened WhatsApp to send message')}
+        />
+      )
+    }
+,
     { name: '', selector: row => '⋮' },
   ];
+
+
+
 
   return (
     <div className="patient-history-table-container">

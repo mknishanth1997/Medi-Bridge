@@ -1,6 +1,6 @@
 /* AddAppointmentForm.css */
 :root {
-  --primary-color: #345995; /* Green, matching New Patient button */
+  --accenting-color: #3b82f6; /* Green, matching New Patient button */
   --secondary-color: #1e293b; /* Dark slate for text and accents */
   --error-color: #dc2626; /* Vibrant red for errors */
 }
@@ -26,7 +26,7 @@
 }
 
 .add-patient-form-header h1:hover {
-  color: var(--primary-color);
+  color: var(--accenting-color);
   transform: scale(1.02);
 }
 
@@ -87,7 +87,7 @@
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1.25rem;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid #3b82f6;
   padding-bottom: 0.5rem;
 }
 
@@ -101,7 +101,7 @@
 .section-header svg,
 .section-header span[role='img'] {
   font-size: 1.75rem;
-  color: var(--primary-color);
+  color: var(--accenting-color);
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
@@ -144,13 +144,13 @@
 
 .form-group input:hover,
 .form-group textarea:hover {
-  border-color: var(--primary-color);
+  border-color: var(--accenting-color);
   transform: scale(1.01);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: var(--primary-color);
+  border-color: var(--accenting-color);
   box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
   outline: none;
   transform: scale(1.01);
@@ -217,7 +217,7 @@
 .radio-group input {
   width: 1.2rem;
   height: 1.2rem;
-  accent-color: var(--primary-color);
+  accent-color: var(--accenting-color);
 }
 
 .file-upload input {
@@ -230,7 +230,7 @@
 }
 
 .file-upload input:hover {
-  border-color: var(--primary-color);
+  border-color: var(--accenting-color);
 }
 
 .form-actions {
@@ -256,7 +256,17 @@
 }
 
 #bab {
-  background: #345996;
+  /*background: #345996;*/
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .book-appointment-button:hover {
@@ -286,9 +296,15 @@
 }
 
 #cb {
-  background-color: transparent;
-  color: black;
-  border: 2px solid #345996;
+  border: 2px solid #3b82f6;
+  background: white;
+  color: #3b82f6;
+  padding: 12px 32px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .cancel-button:hover {

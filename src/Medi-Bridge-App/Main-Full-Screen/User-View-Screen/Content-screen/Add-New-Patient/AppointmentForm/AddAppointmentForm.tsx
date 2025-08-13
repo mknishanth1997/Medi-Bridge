@@ -564,10 +564,10 @@ export function AddPatientDetailsForm({ patientId, onClose }: AddPatientDetailsF
 
         {/* Form Actions */}
         <div className="form-actions">
-          <button type="submit" className="book-appointment-button" id="bab">
+          <button type="submit" className="book-appointment-button edit" id="bab">
             Book Appointment
           </button>
-          <button type="button" onClick={onClose} className="cancel-button" id="cb">
+          <button type="button" onClick={onClose} className="cancel-button print" id="cb">
             Cancel
           </button>
         </div>
