@@ -22,7 +22,7 @@ export function HomeScreenCard({ headerText, text1, text2, bottomText, onclick, 
           </div>
           <div className="home-screen-card-header-img-container">
             <div className="someanotherdummytext">
-              <IoIosStar size={24}></IoIosStar>
+              <IoIosStar size={34}></IoIosStar>
               <p>Saved</p>
             </div>
             <img src={dseth} alt="" />

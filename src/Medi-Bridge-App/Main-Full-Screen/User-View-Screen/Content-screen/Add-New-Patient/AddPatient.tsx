@@ -31,6 +31,7 @@ export function AddPatient() {
         {/* New patient button */}
         {formVisible || (
           <button
+            className="edit"
             onClick={() => {
               setSelectedPatientId(undefined); // new patient = no ID
               setFormVisible(true); // show form

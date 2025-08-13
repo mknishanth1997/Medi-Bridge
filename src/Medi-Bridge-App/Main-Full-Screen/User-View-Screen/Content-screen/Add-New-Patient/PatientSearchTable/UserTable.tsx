@@ -55,20 +55,22 @@ function PatientTable({ onEditPatient }: UserTableProps) {
     {
       name: 'DOB',
       selector: row => row.date,
+      sortable: true,
     },
     {
       name: 'Phone Number',
       selector: row => row.patientPhoneNumber,
+      sortable: true,
     },
     {
       name: 'Urgency',
-      cell: row => <UrgencyIndicator age={row.patientAge}></UrgencyIndicator>,
+      cell: row => <UrgencyIndicator age={row.patientAge} />,
     },
     {
       name: 'Action',
       cell: row => (
         <button
-          className="userTableButton"
+          className="userTableButton edit"
           onClick={() => {
             onEditPatient(row.patientId);
           }}
@@ -95,11 +97,10 @@ function PatientTable({ onEditPatient }: UserTableProps) {
         columns={columns}
         data={filteredData}
         fixedHeader
-        // fixedHeaderScrollHeight="300px"
+        // fixedHeaderScrollHeight="300px" // Uncomment if you want a fixed height
         dense={false}
         highlightOnHover
         striped
-        noPagination
       />
     </div>
   );
@@ -107,38 +108,20 @@ function PatientTable({ onEditPatient }: UserTableProps) {
 
 export default PatientTable;
 
-function UrgencyIndicator({ age }) {
-  const [urgency, setUrgency] = useState('');
+function UrgencyIndicator({ age }: { age: number }) {
+  let urgency = 'none';
+  if (age >= 80) urgency = 'critical';
+  else if (age >= 60) urgency = 'high';
+  else if (age >= 40) urgency = 'medium';
+  else if (age >= 20) urgency = 'low';
 
-  const colors = {
-    critical: '#DC2626', // Vibrant red for high urgency
-    high: '#F97316', // Bright orange for noticeable contrast
-    medium: '#F59E0B', // Warm amber for middle ground
-    low: '#10B981', // Fresh green for lower urgency
-    none: '#3B82F6', // Cool blue for no urgency
-  };
-
-  useEffect(() => {
-    if (age >= 80) setUrgency('critical');
-    else if (age >= 60) setUrgency('high');
-    else if (age >= 40) setUrgency('medium');
-    else if (age >= 20) setUrgency('low');
-    else setUrgency('none');
-  }, [age]);
+  // Removed useState/useEffect as urgency is static per age
 
   return (
-    <button
-      style={{
-        backgroundColor: colors[urgency],
-        color: '#fff',
-        padding: '0.5rem 1rem',
-        border: 'none',
-        borderRadius: '8px',
-        cursor: 'pointer',
-        fontWeight: 'bold',
-      }}
+    <span
+      className={`patient-table-urgency-indicator patient-table-urgency-${urgency}`}
     >
       {urgency.toUpperCase()}
-    </button>
+    </span>
   );
 }

@@ -1,175 +1,231 @@
-.pt-patient-table-container {
-  max-width: 1000px;
+/* PatientTable.css - Specific styles for PatientTable component */
+
+.patient-table-container {
+  max-width: 100%;
   margin: 2rem auto;
   padding: 2rem;
-  background: linear-gradient(135deg, #ffffff, #f8fafc);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  animation: pt-fadeIn 0.8s ease-in-out;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
-}
-
-.pt-patient-table-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #1e293b;
-  text-align: left;
-  letter-spacing: -0.025em;
-  border-left: 4px solid #3b82f6;
-  padding-left: 1rem;
-}
-
-.pt-patient-search-bar {
-  width: 100%;
-  max-width: 400px;
-  padding: 12px 16px;
-  font-size: 1rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-  background-color: #fff;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.pt-patient-search-bar:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-  outline: none;
-  transform: translateY(-1px);
-}
-
-.pt-patient-search-bar::placeholder {
-  color: #94a3b8;
-  font-style: italic;
-}
-
-/* DataTable Styling */
-.pt-rdt_Table {
-  background-color: #fff;
+  background: #ffffff;
   border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Enhanced font stack for better consistency and smoothness */
+  animation: patient-table-fade-in 0.6s ease-out;
+
+}
+
+.patient-table-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1f2937;
+  padding-left: 1rem;
+  border-left: 4px solid #3b82f6;
+  letter-spacing: -0.025em;
+}
+
+.patient-search-bar {
+  width: 100%;
+  max-width: 450px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.patient-search-bar:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.patient-search-bar::placeholder {
+  color: #9ca3af;
+}
+
+/* DataTable Overrides - Specific to PatientTable */
+.patient-table-container .rdt_Table {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
   overflow: hidden;
   font-size: 0.95rem;
-  border: 1px solid #e2e8f0;
-  max-height: 320px; /* Fixed height for 5 rows */
-  overflow-y: auto; /* Enable vertical scrolling */
 }
 
-.pt-rdt_TableHeadRow {
-  background-color: #f1f5f9;
-  color: #1e293b;
+.patient-table-container .rdt_TableHeadRow {
+  background-color: #f9fafb;
+  border-bottom: 2px solid #e5e7eb;
+  min-height: 52px;
+}
+
+.patient-table-container .rdt_TableCol {
   font-weight: 600;
+  color: #374151;
+  padding: 16px 12px;
   text-transform: uppercase;
+  font-size: 0.75rem;
   letter-spacing: 0.05em;
-  border-bottom: 1px solid #e2e8f0;
-  position: sticky; /* Keep header fixed */
-  top: 0;
-  z-index: 1;
 }
 
-.pt-rdt_TableRow {
-  border-bottom: 1px solid #f1f5f9;
-  transition: all 0.2s ease;
-  min-height: 56px; /* Consistent row height */
+.patient-table-container .rdt_TableRow {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.15s ease;
+  min-height: 60px;
 }
 
-.pt-rdt_TableRow:hover {
-  background-color: #f0f4ff;
-  transform: translateX(2px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+.patient-table-container .rdt_TableRow:hover {
+  background-color: #f8fafc;
 }
 
-.pt-rdt_TableCol {
-  padding: 1rem;
-  color: #1e293b;
+.patient-table-container .rdt_TableCell {
+  padding: 16px 12px;
+  color: #374151;
+  font-size: 0.95rem;
+  vertical-align: middle;
 }
 
-.pt-rdt_TableCell {
-  padding: 1rem;
-  color: #334155;
-}
-
-/* Action Button */
-.pt-patientTableButton {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
+/* Patient Table Specific Button */
+.userTableButton {
   background-color: #3b82f6;
   color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  min-width: 70px;
 }
 
-.pt-patientTableButton:hover {
+.userTableButton:hover {
   background-color: #2563eb;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 }
 
-.pt-patientTableButton:active {
+.userTableButton:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px rgba(59, 130, 246, 0.3);
 }
 
-/* Urgency Indicator */
-.pt-urgency-button[style*='backgroundColor'] {
-  padding: 6px 12px;
+/* Urgency Indicator Styles */
+.patient-table-urgency-indicator {
+  border: none;
+  padding: 8px 16px; /* Adjusted padding for better content fit */
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  cursor: default;
+  letter-spacing: 0.025em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100px;
+
+  /* Removed fixed width/height to size based on content */
 }
 
-.pt-urgency-button[style*='backgroundColor']:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
+.patient-table-urgency-critical {
+  background-color: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+}
+
+.patient-table-urgency-high {
+  background-color: #f97316;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(249, 115, 22, 0.3);
+}
+
+.patient-table-urgency-medium {
+  background-color: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
+}
+
+.patient-table-urgency-low {
+  background-color: #10b981;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+}
+
+.patient-table-urgency-none {
+  background-color: #3b82f6; /* Changed to blue as per original JS colors for 'none' */
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3); /* Updated shadow to match blue */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .pt-patient-table-container {
-    padding: 1rem;
+  .patient-table-container {
     margin: 1rem;
+    padding: 1.5rem;
   }
 
-  .pt-patient-table-title {
+  .patient-table-title {
     font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
-  .pt-patient-search-bar {
+  .patient-search-bar {
     max-width: 100%;
+    padding: 12px 16px;
   }
 
-  .pt-rdt_Table {
-    font-size: 0.9rem;
-    max-height: 280px; /* Slightly smaller for mobile */
+  .patient-table-container .rdt_TableCol,
+  .patient-table-container .rdt_TableCell {
+    padding: 12px 8px;
+    font-size: 0.875rem;
   }
 
-  .pt-patientTableButton {
+  .userTableButton {
     padding: 6px 12px;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    min-width: 60px;
+  }
+
+  .patient-table-urgency-indicator {
+    padding: 6px 12px; /* Scaled padding */
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .patient-table-container {
+    padding: 1rem;
+  }
+
+  .patient-table-title {
+    font-size: 1.25rem;
+  }
+
+  .patient-table-container .rdt_TableCol,
+  .patient-table-container .rdt_TableCell {
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+
+  .patient-table-urgency-indicator {
+    padding: 4px 8px; /* Further scaled for small screens */
+    font-size: 0.65rem;
   }
 }
 
 /* Animation */
-@keyframes pt-fadeIn {
+@keyframes patient-table-fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
+
+

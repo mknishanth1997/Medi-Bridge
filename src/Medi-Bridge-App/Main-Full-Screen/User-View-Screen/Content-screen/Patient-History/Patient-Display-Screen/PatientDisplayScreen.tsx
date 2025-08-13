@@ -46,16 +46,14 @@ export function PatientDisplayScreen({ patientId, setIsPtntScrnVisible }) {
         <div className="patient-display-body-left">
           <div className="patient-display-profile-card">
             <div
-              className="imgdsf"
-              style={{
-                backgroundImage: `url(${pickRandomLink(patientId.gender)})`,
-              }}
+              // className="imgdsf"
+
             >
-              {/* <img
+              <img
                 className="patient-display-profile-card__image"
                 src={pickRandomLink('male')}
                 alt="Profile"
-              /> */}
+              />
             </div>
             <div className="patient-display-profile-card__text-details">
               <p className="patient-display-profile-card__name">{patientId?.name || 'No data'}</p>
