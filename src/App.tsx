@@ -10,11 +10,12 @@ import { RevenueAnalysis } from './Medi-Bridge-App/Main-Full-Screen/User-View-Sc
 import { DoctorPerformanceAnalysis } from './Medi-Bridge-App/Main-Full-Screen/User-View-Screen/Content-screen/Doctor-Performance/DoctorPerformance';
 import { DataProvider } from './Medi-Bridge-App/context/DataContext';
 import { PatientDisplayScreen } from './Medi-Bridge-App/Main-Full-Screen/User-View-Screen/Content-screen/Patient-History/Patient-Display-Screen/PatientDisplayScreen';
+import { HashRouter } from 'react-router-dom';
 
 function App() {
   return (
     <DataProvider>
-      <BrowserRouter basename="/Medi-Bridge">
+      <HashRouter>
         <Routes>
           <Route path="/*" element={<MainFullScreen />}>
             <Route path="home" element={<HomeScreen />} />
@@ -30,7 +31,7 @@ function App() {
             />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </DataProvider>
   );
 }
