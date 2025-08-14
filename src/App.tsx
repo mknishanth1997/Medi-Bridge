@@ -14,7 +14,7 @@ import { PatientDisplayScreen } from './Medi-Bridge-App/Main-Full-Screen/User-Vi
 function App() {
   return (
     <DataProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/Medi-Bridge">
         <Routes>
           <Route path="/*" element={<MainFullScreen />}>
             <Route path="home" element={<HomeScreen />} />

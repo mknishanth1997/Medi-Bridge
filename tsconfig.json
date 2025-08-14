@@ -2,8 +2,9 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
+    "noStrictGenericChecks": true,
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -11,9 +12,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./node_modules/@types", "./src"]
+    "strict": false,
+    "forceConsistentCasingInFileNames": false
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

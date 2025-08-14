@@ -5,4 +5,5 @@ import svgr from 'vite-plugin-svgr'; // 👈 ADD THIS
 
 export default defineConfig({
   plugins: [react(), svgr()], // 👈 ADD svgr to plugins array
+  base: '/Medi-Bridge/',
 });
