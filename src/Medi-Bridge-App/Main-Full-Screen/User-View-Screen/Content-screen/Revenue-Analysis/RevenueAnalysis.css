@@ -1,0 +1,134 @@
+.revenu-analysis-main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* full viewport */
+}
+
+.rascwjkjfd {
+  display: flex;
+  justify-content: center;
+  margin: 40px 16px;
+  gap: 40px;
+  margin: 40px 16px;
+}
+
+.piechartwholecontainerman {
+  display: grid;
+  grid-template-areas:
+    'bar one'
+    'bar two';
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr; /* proportional rows */
+  flex: 1; /* <-- THIS MAKES IT FILL REMAINING SPACE */
+  gap: 16px;
+  /* margin: 16px; */
+  padding: 0px 24px;
+  padding-bottom: 24px;
+  /* border: solid; */
+}
+
+.mainonebrochart {
+  grid-area: bar;
+  /* border: solid; */
+}
+.sideoneeee {
+  grid-area: one;
+  border: solid;
+}
+.sidetwoooo {
+  grid-area: two;
+  border: solid;
+}
+.mainonebrochart {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+.textingtexginbro p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.textingtexginbro h1 {
+  font-size: 28px;
+  margin: 4px 0;
+  color: #1f2937;
+}
+
+.sales-amount {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.trend {
+  font-size: 14px;
+  color: #10b981;
+  margin-left: 6px;
+}
+
+.chartingmain {
+  flex: 1;
+  min-height: 250px;
+}
+.sideoneeee,
+.sidetwoooo {
+  box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+  border: none;
+}
+.revenu-analysis-main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* keep full screen height */
+}
+
+.rascwjkjfd {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 16px;
+  flex-shrink: 0; /* don't shrink */
+}
+
+.piechartwholecontainerman {
+  display: grid;
+  grid-template-areas:
+    'bar one'
+    'bar two';
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  flex: 1; /* take remaining space after header + cards */
+  gap: 16px;
+  padding: 0 24px 24px 24px;
+  overflow: hidden; /* prevent scrolling inside */
+}
+
+.mainonebrochart,
+.sideoneeee,
+.sidetwoooo {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chartingmain {
+  flex: 1;
+  min-height: 0; /* critical so Recharts can shrink properly */
+}
+.sideoneeee,
+.sidetwoooo {
+  min-height: 0;
+}

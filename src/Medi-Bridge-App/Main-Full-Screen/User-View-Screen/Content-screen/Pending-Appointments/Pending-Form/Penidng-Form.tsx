@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useData } from '../../../../../context/DataContext';
 import './pending-form.css';
 
-const PatientForm = ({ isFormOpen = "", patientId = "", setPatientId = "", appointmentId = "" }) => {
+const PatientForm = ({ isFormOpen = '', patientId, setPatientId = '', appointmentId = '' }) => {
   const { appointments, patientHistories, saveAppointments, savePatientHistories } = useData();
   const [diagnosis, setDiagnosis] = useState('');
   const [medications, setMedications] = useState('');

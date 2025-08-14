@@ -1,0 +1,108 @@
+.sales-card {
+  background: tr;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+
+  width: 350px;
+  font-family: Arial, sans-serif;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.icon {
+  font-size: 20px;
+  color: #6b7280;
+}
+
+.title {
+  font-size: 24px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.menu {
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.sales-amount {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.trend {
+  font-size: 16px;
+  color: #10b981;
+  margin-left: 0px;
+}
+
+.average-link {
+  font-size: 16px;
+  color: #6b7280;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #b1b7c4;
+  padding: 8px;
+}
+
+.arrow {
+  font-size: 16px;
+  color: #3b82f6;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* ensures vertical alignment */
+  margin-bottom: 12px;
+  /* border: solid; */
+}
+
+.title {
+  font-size: 20px; /* slightly smaller so it visually matches the icon size */
+  font-weight: 500;
+  color: #6b7280;
+  flex: 1; /* allows title to take available space between icon and menu */
+  text-align: center; /* optional: center between icon and menu */
+}
+
+.average-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* fixes vertical alignment of text and arrow */
+  font-size: 16px;
+  color: #6b7280;
+  border-top: 1px solid #b1b7c4;
+  padding: 8px 0; /* reduce vertical padding for tighter look */
+}
+.card-header-first-part {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between icon and title */
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #6b7280;
+  flex: none; /* remove flex:1, let it size naturally */
+}
+
+.icon {
+  font-size: 24px; /* matches react-icons size if needed */
+  color: #6b7280;
+}

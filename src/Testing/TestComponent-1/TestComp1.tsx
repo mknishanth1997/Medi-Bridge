@@ -5,9 +5,21 @@ import { useEffect, useState } from 'react';
 import { useData } from '../../Medi-Bridge-App/context/DataContext';
 import { ROUTES } from '../../Medi-Bridge-App/types/DATATYPES';
 import { useNavigate } from 'react-router-dom';
+import {
+  toPendingAppp,
+  appointmentfakedata,
+  patientHistoryFakeData,
+} from '../../Medi-Bridge-App/DATA/DATA';
 export function TestHeader() {
   const navigate = useNavigate();
-  const { appointments, saveAppointments, patientHistories, savePatientHistories } = useData();
+  const {
+    appointments,
+    saveAppointments,
+    patientHistories,
+    savePatientHistories,
+    clearAppointments,
+    clearPatientHistories,
+  } = useData();
   const [notificationStatus, setNotificationStatus] = useState(false);
 
   const today = new Date();
@@ -25,13 +37,15 @@ export function TestHeader() {
     'Sep',
     'Oct',
     'Nov',
-    'Dec',]
+    'Dec',
+  ];
   const month = monthNames[today.getMonth()]; // e.g. "Aug"
   const year = today.getFullYear(); // e.g. 2025
 
   const todayFormatted = `${day} ${month} ${year}`; // "08 Aug 2025"
-  const noOfAppointment = appointments
-    .filter(app => app.status === 'booked' && app.date === todayFormatted);
+  const noOfAppointment = appointments.filter(
+    app => app.status === 'booked' && app.date === todayFormatted
+  );
   useEffect(() => {
     if (noOfAppointment.length > 0) {
       setNotificationStatus(true);
@@ -58,7 +72,7 @@ export function TestHeader() {
         </div>
 
         <div className="header-right">
-          <div className="stats-widget"  onClick={() => navigate(ROUTES.PENDINGAPPOINTMENT)}>
+          <div className="stats-widget" onClick={() => navigate(ROUTES.PENDINGAPPOINTMENT)}>
             <div className="stats-icon">
               <PendingAppointmentIcon />
               <div className="pulse-ring"></div>
@@ -68,7 +82,6 @@ export function TestHeader() {
               <span className="stats-label">Today's Appointments</span>
             </div>
           </div>
-
           <div
             className={`notification-container ${notificationStatus ? 'active' : ''}`}
             // onClick={() => setNotificationStatus(!notificationStatus)}
@@ -77,9 +90,24 @@ export function TestHeader() {
             <div className="notification-dot"></div>
             <div className="notification-ripple"></div>
           </div>
-
-          <button className="save-button">
-            <span className="save-button-text">Save</span>
+          <button
+            className="save-button"
+            onClick={() => {
+              saveAppointments(appointmentfakedata);
+              savePatientHistories(patientHistoryFakeData);
+            }}
+          >
+            <span className="save-button-text">Populate</span>
+            <div className="save-button-shine"></div>
+          </button>{' '}
+          <button
+            className="save-button"
+            onClick={() => {
+              clearAppointments();
+              clearPatientHistories();
+            }}
+          >
+            <span className="save-button-text">Erase</span>
             <div className="save-button-shine"></div>
           </button>
         </div>

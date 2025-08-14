@@ -1,0 +1,48 @@
+.revenue-page-header {
+  /* border: solid; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 24px;
+}
+.revenue-page-header-left > h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+.revenue-page-header-left > p {
+  color: #6b7280;
+}
+
+/*  */
+.revenue-page-header-right {
+  /* border: solid; */
+  display: flex;
+  gap: 16px;
+}
+
+.revenue-page-header-right > * {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  width: 120px;
+  justify-content: center;
+  font-weight: 900;
+  cursor: pointer;
+}
+.revenue-page-header-right > :nth-child(1) {
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
+}
+.revenue-page-header-right > :nth-child(2) {
+  background-color: #3b82f6;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+}
+
+.revenue-page-header-right > :hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
