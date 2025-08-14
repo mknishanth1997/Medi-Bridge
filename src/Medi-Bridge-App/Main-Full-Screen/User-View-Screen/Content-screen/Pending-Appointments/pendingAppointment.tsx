@@ -54,11 +54,13 @@ export function PendingAppointment() {
 
   return (
     <>
-      <div className="pending-app-container">
-        <div className="heading-pa" >
-          <h1 id={"heading-paa"}>Book Appointment</h1>
+      <div className="pending-app-containerr">
+        <div className="heading-paa">
+          <h1 id={'heading-paaa'}>Book Appointment</h1>
         </div>
-        <div className="pending-card-all" id={"pending-card-alll"}>{pA}</div>
+        <div className="pending-card-alll" id={'pending-card-alll'}>
+          {pA}
+        </div>
       </div>
     </>
   );

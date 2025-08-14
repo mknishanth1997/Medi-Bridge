@@ -1,40 +1,46 @@
 @import url(../../../../Styles/Variables.css);
 
-.pending-app-container {
+.pending-app-containerr {
   width: 100%;
   height: 100%;
   background-color: white;
   position: relative;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.heading-pa {
+.heading-paa {
   padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /*background: linear-gradient(180deg, #102a43 0%, #153a5f 100%);*/
-  position: sticky;
+  /* background: linear-gradient(180deg, #102a43 0%, #153a5f 100%); */
+  /* position: sticky; */
   top: 0;
   width: 100%;
   /* border: 10px black solid; */
   color: #3b82f6;
 }
-#heading-paa{
+#heading-paaa {
   color: #3b82f6;
 }
-.heading-pa h1 {
+.heading-paa h1 {
   font-size: 2.5rem;
-color: #3b82f6 !important;
+  color: #3b82f6 !important;
 }
 
-.pending-card-all {
+.pending-card-alll {
   /* height: 100%; */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   /*padding: 70px;*/
-   border: 10px black solid;
+  /* border: 10px black solid; */
   gap: 16px;
   grid-row-gap: 24px;
-  max-width: 100px;
-  height: 100vh;
+  margin-left: 0;
+}
+#pending-card-alll {
+  margin-left: 24px;
+  min-width: 90%;
+  padding: 24px;
 }
