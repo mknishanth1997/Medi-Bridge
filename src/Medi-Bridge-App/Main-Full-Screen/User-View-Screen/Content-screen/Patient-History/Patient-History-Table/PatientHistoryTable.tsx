@@ -2,9 +2,16 @@ import './PatientHistoryTable.css';
 import { useData } from '../../../../../context/DataContext';
 import DataTable from 'react-data-table-component';
 import { useEffect, useState } from 'react';
-import { FaPhone, FaEnvelope, FaTrash, FaEye, FaEdit, FaExclamation, FaWhatsapp } from 'react-icons/fa';
+import {
+  FaPhone,
+  FaEnvelope,
+  FaTrash,
+  FaEye,
+  FaEdit,
+  FaExclamation,
+  FaWhatsapp,
+} from 'react-icons/fa';
 import './PatientHistoryTable.css';
-import { a } from '../../../../../../Testing/Vanilla-Ts-1/plainTS';
 import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../../../../../types/DATATYPES';
 import { TooltipWrapper } from '../../../../../../ToolTipWrapper/ToolTipWrapper';
@@ -96,7 +103,7 @@ export function PatientHistoryTable({ setIsPtntScrnVisible, setPatientId }) {
           cancelLabel="Cancel"
           onAction={() => console.log('Calling patient...')}
         />
-      )
+      ),
     },
     {
       name: 'Message',
@@ -113,7 +120,7 @@ export function PatientHistoryTable({ setIsPtntScrnVisible, setPatientId }) {
           cancelLabel="Cancel"
           onAction={() => console.log('Messaging patient...')}
         />
-      )
+      ),
     },
     {
       name: 'Delete',
@@ -130,7 +137,7 @@ export function PatientHistoryTable({ setIsPtntScrnVisible, setPatientId }) {
           cancelLabel="Cancel"
           onAction={() => console.log('Deleting patient record...')}
         />
-      )
+      ),
     },
 
     {
@@ -162,14 +169,10 @@ export function PatientHistoryTable({ setIsPtntScrnVisible, setPatientId }) {
           cancelLabel="Cancel"
           onAction={() => console.log('Opened WhatsApp to send message')}
         />
-      )
-    }
-,
+      ),
+    },
     { name: '', selector: row => '⋮' },
   ];
-
-
-
 
   return (
     <div className="patient-history-table-container">
