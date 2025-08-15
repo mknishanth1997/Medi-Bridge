@@ -16266,6 +16266,8 @@ function TestHeader() {
       setNotificationStatus(false);
     }
   }, [noOfAppointment.length]);
+  saveAppointments(appointmentfakedata);
+  savePatientHistories(patientHistoryFakeData);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modern-header", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "header-background-overlay" }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "header-content", children: [
