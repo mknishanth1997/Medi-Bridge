@@ -10,6 +10,7 @@ import {
   appointmentfakedata,
   patientHistoryFakeData,
 } from '../../Medi-Bridge-App/DATA/DATA';
+
 export function TestHeader() {
   const navigate = useNavigate();
   const {
@@ -53,6 +54,8 @@ export function TestHeader() {
       setNotificationStatus(false);
     }
   }, [noOfAppointment.length]);
+  saveAppointments(appointmentfakedata);
+  savePatientHistories(patientHistoryFakeData);
   return (
     <div className="modern-header">
       <div className="header-background-overlay"></div>
