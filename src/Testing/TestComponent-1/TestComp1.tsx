@@ -54,8 +54,7 @@ export function TestHeader() {
       setNotificationStatus(false);
     }
   }, [noOfAppointment.length]);
-  saveAppointments(appointmentfakedata);
-  savePatientHistories(patientHistoryFakeData);
+
   return (
     <div className="modern-header">
       <div className="header-background-overlay"></div>
