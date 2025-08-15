@@ -8,5 +8,6 @@ export default defineConfig({
   base: '/Medi-Bridge/',
   build: {
     cssCodeSplit: true, // ensures CSS files are separate
+    minify: false,
   },
 });
