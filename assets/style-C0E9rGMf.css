@@ -1084,9 +1084,9 @@ img {
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Enhanced font stack for better consistency and smoothness */
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Enhanced font stack for better consistency and smoothness */
   animation: patient-table-fade-in 0.6s ease-out;
-
 }
 
 .patient-table-title {
@@ -1304,8 +1304,7 @@ img {
     opacity: 1;
     transform: translateY(0);
   }
-
-
+}
 /* AddAppointmentForm.css */
 :root {
   --accenting-color: #3b82f6; /* Green, matching New Patient button */

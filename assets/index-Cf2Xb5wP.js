@@ -14462,7 +14462,7 @@ const PencilIcon = ({ size: size2 = 24, color: color2 = "currentColor", ...props
     }
   );
 };
-const DoctorReal = "/Medi-Bridge/assets/DoctorReal-DgwackAm.webp";
+const DoctorReal = "" + new URL("DoctorReal-DgwackAm.webp", import.meta.url).href;
 const ROUTES = {
   HOME: "/home",
   ADDPATIENT: "/addPatient",
@@ -14530,7 +14530,7 @@ function SideBar() {
     ] }) })
   ] }) });
 }
-const hospitalLogo = "/Medi-Bridge/assets/hospitalLogo-CXyzW7bu.png";
+const hospitalLogo = "" + new URL("hospitalLogo-CXyzW7bu.png", import.meta.url).href;
 const DataContext = reactExports.createContext(void 0);
 function DataProvider(props) {
   const [appointments, setAppointments] = reactExports.useState([]);
@@ -16347,7 +16347,7 @@ function MainFullScreen() {
     ] })
   ] }) });
 }
-const dseth = "/Medi-Bridge/assets/3dseth-QoqV4NS_.avif";
+const dseth = "" + new URL("3dseth-QoqV4NS_.avif", import.meta.url).href;
 var DefaultContext = {
   color: void 0,
   size: void 0,
@@ -19192,14 +19192,14 @@ function AddPatient() {
     ) })
   ] }) });
 }
-const babyboy = "/Medi-Bridge/assets/babyboy-CYBeJWxK.png";
-const babygirl = "/Medi-Bridge/assets/babygirl-WZDFCXp2.png";
-const Man = "/Medi-Bridge/assets/Man-DnI3t-ES.png";
-const teengirl = "/Medi-Bridge/assets/teengirl-DDdEjBCL.png";
-const man = "/Medi-Bridge/assets/man-C4kSBLVk.png";
-const woman = "/Medi-Bridge/assets/woman-B1KXi0Zb.png";
-const oldman = "/Medi-Bridge/assets/oldman-BsAdq-WA.png";
-const oldwoman = "/Medi-Bridge/assets/oldwoman-BHO5Ow0g.png";
+const babyboy = "" + new URL("babyboy-CYBeJWxK.png", import.meta.url).href;
+const babygirl = "" + new URL("babygirl-WZDFCXp2.png", import.meta.url).href;
+const Man = "" + new URL("Man-DnI3t-ES.png", import.meta.url).href;
+const teengirl = "" + new URL("teengirl-DDdEjBCL.png", import.meta.url).href;
+const man = "" + new URL("man-C4kSBLVk.png", import.meta.url).href;
+const woman = "" + new URL("woman-B1KXi0Zb.png", import.meta.url).href;
+const oldman = "" + new URL("oldman-BsAdq-WA.png", import.meta.url).href;
+const oldwoman = "" + new URL("oldwoman-BHO5Ow0g.png", import.meta.url).href;
 function PendingPatientCard({
   patientId,
   token: token2,
