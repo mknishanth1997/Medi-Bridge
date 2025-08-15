@@ -48587,7 +48587,7 @@ function RevenueAnalysis() {
   ] }) });
 }
 function DoctorPerformanceAnalysis() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(AgeGroupRevenueChart, {});
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(AddPatientDetailsForm, {});
 }
 function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(DataProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(HashRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Routes, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Route, { path: "/*", element: /* @__PURE__ */ jsxRuntimeExports.jsx(MainFullScreen, {}), children: [
